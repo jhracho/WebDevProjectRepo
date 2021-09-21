@@ -15,7 +15,7 @@
 .heading h1{
     font-family: 'Bebas Neue', cursive;
     font-size: 6vw;
-    color: #004c54;
+    color: #0C2340;
     letter-spacing: 0.05em;
     transform: scale(1, 0.8);
     text-align: center;
@@ -33,7 +33,7 @@
 .heading h2{
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
-    color: #004c54;
+    color: #0C2340;
     letter-spacing: 0.05em;
     transform: scale(1, 0.8);
     text-align: center;
@@ -58,13 +58,13 @@
     margin-left: 1em;
     margin-right: 1em;
     background: whitesmoke;
-    border: 3px solid #004c54;
+    border: 3px solid #0C2340;
 }
 
 .column h2{
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
-    color: #004c54;
+    color: #0C2340;
     letter-spacing: 0.05em;
     transform: scale(1, 0.8);
 }
@@ -73,7 +73,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 1.25vw;
     list-style: none;
-    color: #004c54;
+    color: #0C2340;
     margin-bottom: 0.25vw;
 }
 
@@ -88,7 +88,7 @@
 
 .column a{
     text-decoration: none;
-    color: #004c54;
+    color: #0C2340;
     margin-left: 1em;
 }
 
@@ -103,7 +103,7 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 2vw;
     flex-direction: column;
-    color: #004c54;
+    color: #0C2340;
     letter-spacing: 0.05em;
     transform: scale(1, 0.8);
     margin-bottom: 3vw;
