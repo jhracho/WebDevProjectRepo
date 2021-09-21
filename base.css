@@ -3,7 +3,7 @@ Navbar CSS that is present on every page
 */
 
 body{
-    background-image: url('images/background.png');
+    background-image: url('images/background.jpg');
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body{
 .navbar{
     display: flex;
     flex-direction: row;
-    background: #ACC0C6;
+    background: #0C2340;
     box-shadow: 0 0.5vw 2vw black;
     font-family: 'Bebas Neue', cursive;
     font-size: 1.5vw;
@@ -51,13 +51,13 @@ body{
 
 .navbar li:hover{
     cursor: pointer;
-    background:rgb(160, 178, 184);
+    background: #102e53;
 }
 
 .navbar li.active{
-    color: #004c54;
+    color: #AE9142;
     cursor: default;
-    background: #ACC0C6;
+    background: #0C2340;
 }
 
 .navbar ul img{
