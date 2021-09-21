@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Landing - Sign Up</title>
+        
+        <!-- Style Sheets-->
+        <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+        <link rel="stylesheet" href="../base.css">
+        <link rel="stylesheet" href="signup.css">
+
+        <!-- Fonts -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+        </style>
+    </head>
+    <body>    
+        <div class='signup-box'>
+            <h1>Create an Account</h1>
+            <form action='create-account-script'>
+                <input type='text' placeholder='First Name' id='firstname-input'/>
+                <input type='text' placeholder='Last Name' id='lastname-input'/> 
+                <input type='text' placeholder='Email' id='email-input'/>
+                <input type='password' placeholder='Password (8-15 Characters)' minlength='8' maxlength='15' id='password-input'/>
+                <input type='password' placeholder='Re-enter your Password' id='confirm-password-input'/>
+                <input type='submit' id='submit-button' value='Create an Account'/>
+                <input type='reset' value='Clear Form'/>
+            </form>
+            <h4>Already have an account? <a href='../login/login.html'>Log In</a>!</h4>
+        </div>    
+    </body>
+</html>

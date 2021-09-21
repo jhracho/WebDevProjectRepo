@@ -1,0 +1,76 @@
+.login-box{
+    background: white;
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1vw;
+    box-shadow: 0 0.25vw 3vw 1vw rgba(0, 0, 0, 0.315);
+}
+
+/* Text input CSS */
+.login-box input[type='text'], input[type='password']{
+    display: block;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #004c54;
+    font-size: 1.5vw;
+    font-family: 'Inter', sans-serif !important;
+    width: 100%;
+}
+
+.login-box input[type='text']:focus, input[type='password']:focus{
+    outline: none;
+    border-bottom: 1px solid #004c54;
+    background: rgb(238, 238, 238);
+}
+
+::placeholder{
+    font-size: 0.8em;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Form button CSS */
+.login-box input[type='submit']{
+    color: white;
+    width: 12vw;
+    height: 2vw;
+    background: #004c54;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1vw;
+    position: absolute;
+    left: 50%;
+    margin-top: 1vw;
+    transform: translateX(-50%);
+}
+
+.login-box input[type='submit']:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.login-box h1{
+    font-family: 'Bebas Neue', cursive;
+    color: #004c54;
+    letter-spacing: 0.05em;
+    transform: scale(1, 0.8);
+    font-size: 2.5vw;
+}
+
+.login-box h4{
+    font-family: "Bebas Neue", cursive;
+    color: #565a5c;
+    letter-spacing: 0.05em;
+    transform: scale(1, 0.8);
+    display: block;
+    margin-top: 4vw;
+    font-size: 1.5vw;
+}
+
+.login-box a{
+    color: #004c54;
+    text-decoration: none;
+}

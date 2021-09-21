@@ -1,0 +1,40 @@
+/* White strip on background of page */
+.background-body{
+    background-color: white;
+    display: flex;
+    flex-flow: column wrap;
+    position: absolute;
+    left: 50%;
+    top: 7.5vw;
+    width: 85%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+
+.heading h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5vw;
+    color: #004c54;
+    letter-spacing: 0.05em;
+    transform: scale(1, 0.8);
+    margin-bottom: -0.5em;
+}
+
+.heading h2{
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5vw;
+    font-weight: 300;
+    color: #565a5c;
+}
+
+.line{
+    border-bottom: 1px solid #565a5c;
+    width: 95%;
+    position: absolute;
+    top: 11vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
