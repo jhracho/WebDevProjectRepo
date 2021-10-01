@@ -1,6 +1,5 @@
 // stateful parent component that displays the top posts from a given week
 // integrates with data service to get the top posts
-
 import { html, useState, useEffect } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 import {Post} from "./Post.js";

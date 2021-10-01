@@ -1,3 +1,4 @@
+// main app page - displays nav bar and home page components
 import {
     html,
     render

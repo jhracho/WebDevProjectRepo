@@ -1,6 +1,5 @@
 // stateful parent component that displays the latest posts
 // integrates with data service to get the latest posts for that day
-
 import { html, useState, useEffect } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 import {Post} from "./Post.js";
