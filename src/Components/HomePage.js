@@ -14,13 +14,13 @@ export function HomePage() {
                 <div class='line'></div>
                 <h2>Blog and Message Board for The Fighting Irish</h2>
             </div>
-            </br>
-            
+            <br />
+
             <!-- Posts will go here after querying DB of sorts -->
             <div class='main-body'>
                 <${PostContainer}></${PostContainer}>
                 <${WriterContainer}></${WriterContainer}>
-                <img src='../../Feature 2/images/headshot.jpg' style='width: 20vw;'>
+                
             </div>
         </div>
     `;
