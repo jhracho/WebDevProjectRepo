@@ -11,8 +11,7 @@ export function LatestPosts() {
         return getLatest('2021-23-09').then((data) => {
             setPosts(data);
         });
-    },[posts]);
-    
+    },[posts]); 
     
     return html`
         <div class='column latest-module'>

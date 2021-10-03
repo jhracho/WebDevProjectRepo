@@ -3,7 +3,8 @@ import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 import { HomePageHeader } from "./HomePageHeader.js";
 import { PostContainer } from "./PostContainer.js"
-import { WriterContainer } from "./WriterContainer.js";
+import { FeaturedWriter } from "./FeaturedWriter.js";
+import { WriterForm } from "./WriterForm.js";
 
 export function HomePage() {
     return html`
@@ -12,7 +13,8 @@ export function HomePage() {
 
             <div class='main-body'>
                 <${PostContainer}></${PostContainer}>
-                <${WriterContainer}></${WriterContainer}>
+                <${FeaturedWriter}></${FeaturedWriter}>
+                <${WriterForm}></${WriterForm}>
             </div>
         </div>
     `;
