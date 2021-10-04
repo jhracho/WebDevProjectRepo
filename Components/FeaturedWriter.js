@@ -2,6 +2,7 @@
 import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 export function FeaturedWriter() {
+    // in the future, this should be dynamic or like tied to an author object (once we make that) so it's easier to update each month
     return html`
         <div class='writer-heading'>    
             <h2>Writer of the Month:</h2>

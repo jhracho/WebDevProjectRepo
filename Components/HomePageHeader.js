@@ -1,4 +1,4 @@
-// component to display heading on home page
+// component to display static heading on home page
 import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 export function HomePageHeader() {
