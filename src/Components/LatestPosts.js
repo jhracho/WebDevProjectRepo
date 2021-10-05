@@ -1,45 +1,30 @@
-// stateful parent component that displays the latest posts
+// stateful component that displays the latest posts
 // integrates with data service to get the latest posts for that day
 import { html, useState, useEffect } from "https://unpkg.com/htm/preact/standalone.module.js";
-
-import {Post} from "./Post.js";
-// TODO: include import for integration with data service
+import { getLatest } from "../Services/post-axios.js";
 
 export function LatestPosts() {
-    /* TODO: uncomment this out and integrate with data service
+    // useState and useEffect used to asynchronously set list of latest posts
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        //DATA_SERVICE_INTEGRATION_GOES_HERE
-    }, [posts]);
-    */
+        return getLatest('2021-23-09').then((data) => {
+            setPosts(data);
+        });
+    },[posts]); 
     
-    //TODO: Delete this const - used for testing individual portion of feature 3 only
-    const posts = [
-    {
-        "id":"1",
-        "author":"jhracho",
-        "title":"Sample Title",
-        "subtitle":"Sample Subtitile",
-        "posttime":"11:23 pm",
-        "likes":"3000",
-        "dislikes":"0",
-        "text":"Lorem ipsum..."
-    },
-    {
-        "id":"2",
-        "author":"jhracho",
-        "title":"Sample Title",
-        "subtitle":"Sample Subtitile",
-        "posttime":"11:12 pm",
-        "likes":"3000",
-        "dislikes":"0",
-        "text":"Lorem ipsum..."
-    }];
     return html`
         <div class='column latest-module'>
             <h2>Latest Posts:</h2>
-            ${posts.map((post) => html`<${Post} post=${post}></${Post}>`)}
-            
+            ${posts.map(
+                (post) =>
+                    // this can be improved by creating a Post.js file to display the post instead of having this html here
+                    // however, with the static data the way that it is right now, we can't access a post by ID so it's easier
+                    // to just have the html here with the understanding that it will be changed for feature 4
+                    html` 
+                        <h3><i class="fas fa-thumbs-up">${post.likes}</i><a href='post/post.html'>${post.title}</a></h3>
+                        <h5><i>${post.author} - ${post.posttime}</i></h5>
+                      `
+            )}
         </div>
     `;
 }
