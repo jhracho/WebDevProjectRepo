@@ -1,20 +1,20 @@
-// stateful component that displays the latest posts
-// integrates with data service to get the latest posts for that day
+// stateful component that displays the top posts from a given week
+// integrates with data service to get the top posts
 import { html, useState, useEffect } from "https://unpkg.com/htm/preact/standalone.module.js";
-import { getLatest } from "./post-axios.js";
+import { getTopPosts } from '../Services/post-axios.js';
 
-export function LatestPosts() {
-    // useState and useEffect used to asynchronously set list of latest posts
+export function TopPosts(){
+    // useState and useEffect used to asynchronously set top posts data
     const [posts, setPosts] = useState([]);
     useEffect(() => {
-        return getLatest('2021-23-09').then((data) => {
+        return getTopPosts("2021-23-09").then((data) => {
             setPosts(data);
         });
-    },[posts]); 
+    },[posts]);
     
     return html`
         <div class='column latest-module'>
-            <h2>Latest Posts:</h2>
+            <h2>Top Posts:</h2>
             ${posts.map(
                 (post) =>
                     // this can be improved by creating a Post.js file to display the post instead of having this html here
@@ -23,8 +23,8 @@ export function LatestPosts() {
                     html` 
                         <h3><i class="fas fa-thumbs-up">${post.likes}</i><a href='post/post.html'>${post.title}</a></h3>
                         <h5><i>${post.author} - ${post.posttime}</i></h5>
-                      `
+                    `
             )}
         </div>
-    `;
+    `
 }

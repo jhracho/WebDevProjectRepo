@@ -1,7 +1,7 @@
 // Returns latest five posts
 export function getLatest(date){
     const axios = window.axios;
-    return axios.get("http://127.0.0.1:5500/data.json").then((response) => {
+    return axios.get("http://127.0.0.1:5500/src/data.json").then((response) => {
         return response.data[date].slice(0, 5);
     });
 }
@@ -9,7 +9,7 @@ export function getLatest(date){
 // Returns the top voted posts from that day
 export function getTopPosts(date){
     const axios = window.axios;
-    return axios.get("http://127.0.0.1:5500/data.json").then((response) => {
+    return axios.get("http://127.0.0.1:5500/src/data.json").then((response) => {
         // Receive Data
         var rawData = response.data;
         var totalData = [];

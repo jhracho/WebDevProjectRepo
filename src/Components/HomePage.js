@@ -3,7 +3,7 @@ import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 import { HomePageHeader } from "./HomePageHeader.js";
 import { PostContainer } from "./PostContainer.js"
-import { FeaturedWriter } from "./FeaturedWriter.js";
+import { FeaturedWriter } from "./WriterFeature.js";
 import { WriterForm } from "./WriterForm.js";
 
 export function HomePage() {
