@@ -1,9 +1,9 @@
 // navbar component displayed at top of page to link to other pages
 // NOTE: links will be changed as more pages are converted to js instead of static html
-import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
+import React from "react";
 
-export function NavBar() {
-    return html`
+const NavBar = () => {
+    return (
     <div class='navbar'>
         <ul class='left'>
             <li class="active">Home</li>
@@ -17,6 +17,7 @@ export function NavBar() {
             <li>Log Out</li>
         </ul>
     </div>
-    <br/>
-    `;
-}
+    );
+};
+
+export default NavBar;

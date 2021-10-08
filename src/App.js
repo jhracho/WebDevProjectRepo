@@ -1,17 +1,8 @@
-// main app page - displays nav bar and home page components
-import {
-    html,
-    render
-  } from "https://unpkg.com/htm/preact/standalone.module.js";
+import React from "react";
+import Components from "./Components/Components.js";
 
-import {NavBar} from "./Components/NavBar.js";
-import {HomePage} from "./Components/HomePage.js";
+const App = () => {
+  return <Components />;
+};
 
-function App() {
-    return html`
-        <${NavBar}></${NavBar}>
-        <${HomePage}></${HomePage}>
-    `;
-}
-  
-render(html` <${App} />`, document.getElementById("app"));
+export default App;
