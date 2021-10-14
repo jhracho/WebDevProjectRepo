@@ -1,6 +1,4 @@
-import React from "react";
-
-const LatestPosts = () => {
+const TopPosts = () => {
   /*
   const [posts, setPosts] = useState([]);
 
@@ -23,12 +21,12 @@ const LatestPosts = () => {
         </Fragment>
       )}
   */
-
+ 
   return (
     <div class='column latest-module'>
-      <h2>Latest Posts:</h2>
+      <h2>Top Posts:</h2>
     </div>
   );
 };
 
-export default LatestPosts;
+export default TopPosts;
