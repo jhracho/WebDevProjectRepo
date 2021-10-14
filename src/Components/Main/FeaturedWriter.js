@@ -7,7 +7,7 @@ const FeaturedWriter = () => {
             <h2>Writer of the Month:</h2>
         </div>
         <div class='writer-body'>
-            <img src='../images/headshot.jpg' title="Writer of the Month Headshot" alt="Writer Name Goes Here..."></img>
+            <img src='../Images/headshot.jpg' title="Writer of the Month Headshot" alt="Writer Name Goes Here..."></img>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tempor neque. Nulla sit 
         amet tellus id massa elementum pellentesque in a arcu. Donec eget lacus pharetra, vestibulum metus ut, 
         dapibus velit. Sed ac urna pellentesque, fermentum orci vel, bibendum magna. Morbi ac quam quam. Sed 
