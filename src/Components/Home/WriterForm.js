@@ -1,9 +1,8 @@
-// component to display writer of the month nomination form
-import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
+import React, { Fragment } from "react";
 
-export function WriterForm() {
-    // in future, we should make this submittable so that it actually interfaces with our database and saves the suggested writer nominations
-    return html`
+const WriterForm = () =>{
+    return (
+        <Fragment>
         <h1>Nominate Your Favorite Writer!</h1>
         <h4>Fill out this form to nominate a writer for Writer of the Month!</h4>
         <div class='nominate-form'>
@@ -19,5 +18,8 @@ export function WriterForm() {
                 <input type='submit' id='submit-button' value='Submit Nomination'/>
             </form>
         </div>
-    `;
-}
+        </Fragment>
+    );
+};
+
+export default WriterForm;
