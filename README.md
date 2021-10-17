@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# The Shamrock - Message Board for Fighting Irish Football
+## Nora Tucker and Jake Hracho
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
