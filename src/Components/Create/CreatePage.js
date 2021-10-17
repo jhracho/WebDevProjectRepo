@@ -1,9 +1,12 @@
 import React from "react";
+import PostForm from "./PostForm";
 
 const Create = () => {
     return(
-      <div>
-          <h1>Create</h1>
+      <div class='post-box'>
+          <h1>Share Your Story</h1>
+          <div class='line'></div>
+          <PostForm />
       </div>
     )
   };

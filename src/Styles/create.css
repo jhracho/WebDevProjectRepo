@@ -1,0 +1,112 @@
+/* White background */
+.post-box{
+    background-color: white;
+    display: flex;
+    flex-flow: column wrap;
+    position: absolute;
+    left: 50%;
+    top: 7.5vw;
+    width: 85%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+
+.post-box h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5vw;
+    color: #0C2340;
+    letter-spacing: 0.05em;
+    transform: scale(1, 0.8);
+    margin-bottom: 0;
+}
+
+.post-box p{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2vw;
+    color: #0C2340;
+    letter-spacing: 0.05em;
+    transform: scale(1, 0.8);
+    margin-bottom: 0;
+}
+
+.line{
+    border-bottom: 1px solid #565a5c;
+    width: 95%;
+    position: absolute;
+    top: 10vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+::placeholder{
+    font-size: 0.7em;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Text input CSS */
+.post-box input[type='text'], input[type='password']{
+    display: block;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #0C2340;
+    font-size: 1.5vw;
+    font-family: 'Inter', sans-serif !important;
+    width: 60%;
+}
+
+.post-box input[type='text']:focus, input[type='password']:focus{
+    outline: none;
+    border-bottom: 1px solid #0C2340;
+    background: rgb(238, 238, 238);
+}
+
+.post-box textarea{
+    background: white;
+    width: 100%;
+    height: 50%;
+    outline: none;
+    resize: none;
+}
+
+.post-box textarea::placeholder{
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom scrollbar for textarea */
+.post-box textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.post-box textarea::-webkit-scrollbar-track {
+    background-color: rgb(238, 238, 238);
+}
+
+.post-box textarea::-webkit-scrollbar-thumb {
+    background-color: #0C2340;
+    border-radius: 3px;
+}
+
+/* Form button CSS */
+.post-box input[type='submit']{
+    color: white;
+    width: 12vw;
+    height: 2vw;
+    background: #0C2340;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1vw;
+    position: absolute;
+    left: 50%;
+    margin-top: 1vw;
+    transform: translateX(-50%);
+}
+
+.post-box input[type='submit']:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
