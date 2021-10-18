@@ -7,7 +7,7 @@ const About = () => {
       <div class='background-body'>
           <Heading />
           <Body />
-      </div>
+      </div>      
     )
   };
 
