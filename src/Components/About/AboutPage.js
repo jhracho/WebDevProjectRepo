@@ -1,9 +1,12 @@
 import React from "react";
+import Heading from "./Heading";
+import Body from "./Body";
 
 const About = () => {
     return(
-      <div>
-          <h1>About</h1>
+      <div class='background-body'>
+          <Heading />
+          <Body />
       </div>
     )
   };
