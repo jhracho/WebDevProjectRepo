@@ -3,19 +3,18 @@ import { getAllPosts } from "../../Services/PostService";
 import { useState, Fragment } from "react";
 
 const LatestPosts = () => {
+
   const [posts, setPosts] = useState([]);
-  const [allPosts, setAllPosts] = useState([]);
 
   // TODO: figure out why there are infinite calls & how to fix that
   useEffect(() => {
-    getAllPosts().then((allPosts) => {
-      console.log(allPosts);
-      setAllPosts(allPosts);
+    getAllPosts().then((postResponse) => {
+      console.log(postResponse);
+      setPosts(postResponse);
     });
 
-    var sortedposts = allPosts.sort((a, b) => b.createdAt - a.createdAt).slice(0,5);
-    setPosts(sortedposts);
-  }, [posts]);
+  }, []);
+
   /*
   const [posts, setPosts] = useState([]);
 
@@ -48,8 +47,8 @@ const LatestPosts = () => {
         {posts.map(
             (post) => (
                 <Fragment>
-                <h3><i class="fas fa-thumbs-up">{post.likes}</i><a href='post/post.html'>{post.title}</a></h3>
-                <h5><i>{post.author.displayname} - {post.createdAt.toDateString()}</i></h5>
+                <h3><i class="fas fa-thumbs-up">{post.get("likes")}</i><a href='post/post.html'>{post.get("title")}</a></h3>
+                <h5><i> {post.get("author").get("displayname")} - {post.createdAt.toDateString()}</i></h5>
                 </Fragment>
         ))}
         </Fragment>

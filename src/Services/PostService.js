@@ -28,9 +28,13 @@ export const getPostById = (id) => {
 };
 
 // read operation - get all posts
+// TODO: make latest vs most liked
 export const getAllPosts = (id) => {
     const Post = Parse.Object.extend("Post");
     const query = new Parse.Query(Post);
+    query.include("author");
+    query.ascending("createdAt");
+    query.limit(5);
     return query.find().then((results) => {
         return results;
     });
