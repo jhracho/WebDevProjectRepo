@@ -1,5 +1,11 @@
 import React from "react";
 import PostForm from "./PostForm";
+import { 
+  getAllPosts,
+  getPostById,
+  createPost,
+  removePostById
+} from "../../Services/PostService";
 
 const Create = () => {
     return(
