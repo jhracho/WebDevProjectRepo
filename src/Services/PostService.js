@@ -28,12 +28,33 @@ export const getPostById = (id) => {
 };
 
 // read operation - get all posts
-// TODO: make latest vs most liked
 export const getAllPosts = (id) => {
     const Post = Parse.Object.extend("Post");
     const query = new Parse.Query(Post);
     query.include("author");
+    return query.find().then((results) => {
+        return results;
+    });
+};
+
+// read operation - get 5 most recent posts
+export const getLatestPosts = (id) => {
+    const Post = Parse.Object.extend("Post");
+    const query = new Parse.Query(Post);
+    query.include("author");
     query.ascending("createdAt");
+    query.limit(5);
+    return query.find().then((results) => {
+        return results;
+    });
+};
+
+// read operation - get 5 most liked posts
+export const getTopPosts = (id) => {
+    const Post = Parse.Object.extend("Post");
+    const query = new Parse.Query(Post);
+    query.include("author");
+    query.descending("likes");
     query.limit(5);
     return query.find().then((results) => {
         return results;
