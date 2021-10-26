@@ -19,7 +19,7 @@ const TopPosts = () => {
         <Fragment>
         {posts.map(
             (post) => (
-                <Post likes={post.get("likes")} title={post.get("title")} authorname={post.get("author").get("displayname")} date={post.createdAt.toDateString()}></Post>
+                <Post post={post}></Post>
         ))}
         </Fragment>
       )}

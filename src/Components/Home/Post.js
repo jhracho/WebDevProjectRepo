@@ -1,10 +1,12 @@
 import {React, Fragment} from "react";
 
-const Post = (likes, title, authorname, date) => {
+const Post = (post) => {
+    console.log("POSTY POST");
+    console.log(post);
     return (
         <Fragment>
-            <h3><i class="fas fa-thumbs-up"> {likes}</i><a href='post/post.html'>{title}</a></h3>
-            <h5><i> {authorname} - {date}</i></h5>
+            <h3><i class="fas fa-thumbs-up"> {post.post.get("likes")}</i><a href='post/post.html'>{post.post.get("title")}</a></h3>
+            <h5><i> {post.post.get("author").get("displayname")} - {post.post.createdAt.toDateString()}</i></h5>
         </Fragment>
     )
 }
