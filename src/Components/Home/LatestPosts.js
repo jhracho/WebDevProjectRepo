@@ -8,7 +8,6 @@ const LatestPosts = () => {
 
   useEffect(() => {
     getLatestPosts().then((postResponse) => {
-      console.log(postResponse);
       setPosts(postResponse);
     });
 

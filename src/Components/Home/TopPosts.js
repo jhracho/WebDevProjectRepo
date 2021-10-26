@@ -6,7 +6,6 @@ const TopPosts = () => {
 
   useEffect(() => {
     getTopPosts().then((postResponse) => {
-      console.log(postResponse);
       setPosts(postResponse);
     });
 
