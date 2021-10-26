@@ -21,7 +21,7 @@ const LatestPosts = () => {
         <Fragment>
         {posts.map(
             (post) => (
-                <Post post={post}></Post>
+              <Post likes={post.get("likes")} title={post.get("title")} authorname={post.get("author").get("displayname")} date={post.createdAt.toDateString()}></Post>
         ))}
         </Fragment>
       )}
