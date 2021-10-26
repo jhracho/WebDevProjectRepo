@@ -2,6 +2,7 @@
 import Parse from "parse";
 
 // create operation - new post
+// TODO: add author as createPost parameter
 export const createPost = ({title, subtitle, text, likes, dislikes, author}) => {
     console.log("attempting to create a post with text: ", text);
     const Post = Parse.Object.extend("Post");
@@ -42,7 +43,7 @@ export const getLatestPosts = (id) => {
     const Post = Parse.Object.extend("Post");
     const query = new Parse.Query(Post);
     query.include("author");
-    query.ascending("createdAt");
+    query.descending("createdAt");
     query.limit(5);
     return query.find().then((results) => {
         return results;
