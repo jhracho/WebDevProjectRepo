@@ -33,6 +33,16 @@ export const getAllAuthors = (id) => {
     });
 };
 
+// read operation - get random author
+export const getRandAuthor = () => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    return query.find().then((results) => {
+        var randIndex = Math.floor(Math.random() * results.length)
+        return results[randIndex];
+    });
+};
+
 // delete operation - delete author by id
 // eventually may want to add some sort of feature where users can only delete authors they've created
 export const removeAuthorById = (id) => {
