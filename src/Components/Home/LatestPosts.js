@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { getLatestPosts } from "../../Services/PostService";
 import Post from "./Post";
+import Post2 from "./Post2";
 
 const LatestPosts = () => {
 
@@ -21,7 +22,7 @@ const LatestPosts = () => {
         <Fragment>
         {posts.map(
             (post) => (
-              <Post likes={post.get("likes")} title={post.get("title")} authorname={post.get("author").get("displayname")} date={post.createdAt.toDateString()}></Post>
+              <Post2 postID={post.objectId}></Post2>
         ))}
         </Fragment>
       )}
