@@ -1,30 +1,27 @@
+import { getTopPosts } from "../../Services/PostService";
+import React, { useEffect, useState, Fragment } from "react";
+import Post from "./Post";
 const TopPosts = () => {
-  /*
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    getLatest('2021-23-09').then((data) => {
-      setPosts(data);
+    getTopPosts().then((postResponse) => {
+      setPosts(postResponse);
     });
-  }, [posts]);
 
-  Inside Return Statement:
-      {posts.length > 0 && (
-        <Fragment>
-        {posts.map(
-            (post) => (
-                <Fragment>
-                <h3><i class="fas fa-thumbs-up">${post.likes}</i><a href='post/post.html'>${post.title}</a></h3>
-                <h5><i>${post.author} - ${post.posttime}</i></h5>
-                </Fragment>
-        ))}
-        </Fragment>
-      )}
-  */
+  }, []);
  
   return (
     <div class='column latest-module'>
       <h2>Top Posts:</h2>
+      {posts.length > 0 && (
+        <Fragment>
+        {posts.map(
+            (post) => (
+                <Post post={post}></Post>
+        ))}
+        </Fragment>
+      )}
     </div>
   );
 };

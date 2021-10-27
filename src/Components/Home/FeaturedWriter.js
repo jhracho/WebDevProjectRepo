@@ -1,23 +1,53 @@
-import React, { Fragment } from "react";
-import headshot from '../../Images/headshot.jpg';
+import React, { Fragment, useEffect, useState } from "react";
+import { getRandAuthor } from "../../Services/AuthorService";
 
 const FeaturedWriter = () => {
-    return (
-        <Fragment>
-        <div class='writer-heading'>    
-            <h2>Writer of the Month:</h2>
-        </div>
-        <div class='writer-body'>
-            <img src={headshot} title="Writer of the Month Headshot" alt="Writer Name Goes Here..."></img>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac tempor neque. Nulla sit 
-        amet tellus id massa elementum pellentesque in a arcu. Donec eget lacus pharetra, vestibulum metus ut, 
-        dapibus velit. Sed ac urna pellentesque, fermentum orci vel, bibendum magna. Morbi ac quam quam. Sed 
-        aliquet elit sit amet mauris iaculis, nec fermentum urna maximus. Donec ligula ante, sagittis eu lacus ac, 
-        aliquet efficitur magna. Phasellus in turpis quis nibh condimentum pulvinar. Praesent malesuada enim erat, eu mollis ipsum ornare eu. 
-        Aenean vestibulum hendrerit nulla, fringilla elementum est finibus hendrerit. Suspendisse potenti.</h5>
-        </div>
-        </Fragment>
-    );
+    const [author, setAuthor] = useState();
+    const [avatar, setAvatar] = useState();
+    const [avatarURL, setAvatarURL] = useState();
+    
+    useEffect(() => {
+        getRandAuthor().then((response) => {
+            setAuthor(response);
+          });
+    }, []);
+
+    // each time the author changes, pull in the avatar file and store it
+    useEffect(() => {
+        if (author) {
+            setAvatar(author.get("avatar"));
+        }
+    }, [author]);
+
+    // each time the avatar file changes, update the url
+    useEffect(() => {
+        if (avatar) {
+            setAvatarURL(avatar.url());
+        }
+    }, [avatar]);
+
+    if (author) {
+        return (
+            <Fragment>
+            <div class='writer-heading'>    
+                <h2>Random Writer: {author.get("displayname")}</h2>
+            </div>
+            <div class='writer-body'>
+                { avatar && (
+                    <img src={avatarURL} title="Writer Headshot" alt={author.get("displayname")}></img>
+                )}
+                <h5>{author.get("bio")}</h5>
+            </div>
+            </Fragment>
+        );
+    }
+    else {
+        return (
+            <div class='writer-heading'>    
+                <h2>No Writers Found</h2>
+            </div>
+        );
+    }
 };
 
 export default FeaturedWriter;
