@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.2.0] - 2021-10-27
 ### Added
 - Props, props, props!
+- Parse models representing classes
+- Routing between modules
 - Formally created this changelog
 
 ### Changed 
