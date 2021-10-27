@@ -1,10 +1,11 @@
-// serivce with operations for parse posts
+// service with operations for parse posts
 import Parse from "parse";
 
+// FUTURE: add update post service to edit posts
+
 // create operation - new post
-// TODO: add author as createPost parameter
-export const createPost = ({title, subtitle, text, likes, dislikes, author}) => {
-    console.log("attempting to create a post with text: ", text);
+export const createPost = ({title, subtitle, text, likes, dislikes, authorObj}) => {
+    console.log("creating post with text: ", text);
     const Post = Parse.Object.extend("Post");
     const post = new Post();
     post.set("title", title);
@@ -12,7 +13,7 @@ export const createPost = ({title, subtitle, text, likes, dislikes, author}) => 
     post.set("text", text);
     post.set("likes", likes);
     post.set("dislikes", dislikes);
-    post.set("author", author);
+    post.set("author", authorObj);
 
     return post.save().then((result) => {
         return result;
@@ -63,6 +64,7 @@ export const getTopPosts = (id) => {
 };
 
 // delete operation - delete post by id
+// not used yet but should be eventually
 // eventually may want to add some sort of feature where users can only delete posts they've created
 export const removePostById = (id) => {
     const Post = Parse.Object.extend("Post");

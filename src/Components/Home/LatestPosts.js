@@ -8,7 +8,6 @@ const LatestPosts = () => {
 
   useEffect(() => {
     getLatestPosts().then((postResponse) => {
-      console.log(postResponse);
       setPosts(postResponse);
     });
 
@@ -21,7 +20,7 @@ const LatestPosts = () => {
         <Fragment>
         {posts.map(
             (post) => (
-                <Post post={post}></Post>
+              <Post post={post}></Post>
         ))}
         </Fragment>
       )}

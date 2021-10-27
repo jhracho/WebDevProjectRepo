@@ -8,8 +8,7 @@ const PostForm = () => {
     const [subtitle, setSubtitle] = useState();
     const [text, setText] = useState();
     const [authors, setAuthors] = useState([]);
-    // TODO: change state type maybe?
-    const [author, setAuthor] = useState();
+    const [author, setAuthor] = useState('');
 
     const onChangeTitle = (e) => {
         e.preventDefault();
@@ -28,24 +27,27 @@ const PostForm = () => {
 
     const onChangeAuthor = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
         setAuthor(e.target.value);
     }
 
+    // this function executes once, when the page is first loaded
+    // this sets the authors array, as well as initializing author to the default (first element in authors)
     // FUTURE:  will want to only pull in authors that the user has access to (as a signed in user)
     useEffect(() => {
         getAllAuthors().then((response) => {
-            console.log(response);
             setAuthors(response);
+            setAuthor(response[0]);
           });
     }, []);
 
-    // TODO: figure out why submission isn't clearing the other text boxes and figure that out
-    // TODO: convert author object to pointer or something
+    // FUTURE: figure out why submission isn't clearing the other text boxes and figure that out
     const onClickHandler = () => {
         var likes = 0;
         var dislikes = 0;
-        createPost({title, subtitle, text, likes, dislikes, author});
+        // find author object based on the selected name
+        var authorObj = authors.find((a => a.get("displayname") === author));
+        
+        createPost({title, subtitle, text, likes, dislikes, authorObj});
     };
 
     return(
@@ -56,7 +58,7 @@ const PostForm = () => {
                 <select name='author-input' required='required' onChange={onChangeAuthor}>
                 {authors.map(
                     (author) => (
-                        <option value={author}>{author.get("displayname")}</option>
+                        <option value={author.author}>{author.get("displayname")}</option>
                     ))}
                 </select>
             </Fragment>
