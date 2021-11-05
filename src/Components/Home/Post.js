@@ -1,5 +1,6 @@
 import {React, Fragment} from "react";
 
+// Post child component that gets props
 const Post = (post) => {
     return (
         <Fragment>

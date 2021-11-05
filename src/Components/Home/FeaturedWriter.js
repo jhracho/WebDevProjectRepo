@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { getRandAuthor } from "../../Services/AuthorService";
 
+// Calls author service to select a random author to display to user
 const FeaturedWriter = () => {
     const [author, setAuthor] = useState();
     const [avatar, setAvatar] = useState();

@@ -3,7 +3,7 @@ import { getLatestPosts } from "../../Services/PostService";
 import Post from "./Post";
 
 const LatestPosts = () => {
-
+  // Calls Post service to get the five most recent posts
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
