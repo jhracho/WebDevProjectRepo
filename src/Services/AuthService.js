@@ -2,7 +2,7 @@ import Parse from "parse";
 
 export const createUser = (newUser) => {
     const User = Parse.Object.extend("User");
-    if (newUser.password != newUser.confirm){
+    if (newUser.password !== newUser.confirm){
         alert("Passwords do not match!");
         return Promise.resolve(false);
     }
