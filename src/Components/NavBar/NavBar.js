@@ -1,7 +1,8 @@
 // navbar component displayed at top of page to link to other pages
-// NOTE: links will be changed as more pages are converted to js instead of static html
 import React from "react";
 import { Link } from "react-router-dom";
+
+// TODO: we should hide log in / sign up / log out pages depending on auth status - like you can only access login / sign up if you aren't logged in
 
 const NavBar = () => {
     return (
