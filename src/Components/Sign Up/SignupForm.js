@@ -49,7 +49,7 @@ const SignupForm = () => {
             <input type='text' placeholder='Last Name' onChange={onChange} name='lastname' id='lastname-input'/> 
             <input type='text' placeholder='Email' onChange={onChange} name='email' id='email-input'/>
             <input type='password' placeholder='Password (8-15 Characters)' name='password' onChange={onChange} minLength='8' maxLength='15' id='password-input'/>
-            <input type='password' placeholder='Re-enter your Password' name='confirm' id='confirm-password-input'/>
+            <input type='password' placeholder='Re-enter your Password' name='confirm' onChange={onChange} id='confirm-password-input'/>
             <input type='submit' id='submit-button' value='Create an Account'/>
         </form>
     );
