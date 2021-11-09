@@ -3,8 +3,8 @@ import HomePage from "./Home/HomePage.js";
 import AboutPage from "./About/AboutPage.js";
 import ExplorePage from "./Explore/ExplorePage.js";
 import CreateProtected from "./Create/CreateProtected.js";
-import LoginProtected from "./Log In/LoginProtected.js";
-import SignUpProtected from "./Sign Up/SignUpProtected.js";
+import LoginProtected from "./Auth/LoginProtected.js";
+import SignUpProtected from "./Auth/SignUpProtected.js";
 
 import NavBar from "./NavBar/NavBar.js";
 
