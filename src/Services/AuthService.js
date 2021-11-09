@@ -1,22 +1,30 @@
 import Parse from "parse";
 
-export const createUser = (newUser) => {
-    const User = Parse.Object.extend("User");
-    if (newUser.password !== newUser.confirm){
+export const createUser = (user) => {
+    const newUser = new Parse.User();
+    
+    if (user.password !== user.confirm){
         alert("Passwords do not match!");
         return Promise.resolve(false);
     }
 
-    const user = new Parse.User();
-    user.set("username", newUser.username);
-    user.set("firstname", newUser.firstname);
-    user.set("lastname", newUser.lastname);
-    user.set("password", newUser.password);
-    user.set("email", newUser.email);
+    newUser.set("username", user.username);
+    newUser.set("firstname", user.firstname);
+    newUser.set("lastname", user.lastname);
+    newUser.set("password", user.password);
+    newUser.set("email", user.email);
     
-    return user.signUp().then((newUserSaved) => {
+    return newUser.signUp().then((newUserSaved) => {
         return newUserSaved;
         }).catch((error) => {
             alert(`Error: ${error.message}`);
+    });
+};
+
+export const loginUser = async (credentials) =>{
+    return Parse.User.logIn(credentials.username, credentials.password).then((loggedIn) => {
+        return loggedIn;
+    }).catch((error) => {
+        alert(`Error: ${error.message}`); 
     });
 };
