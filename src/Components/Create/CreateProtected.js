@@ -1,12 +1,13 @@
 // toplevel component to run createPage through a protected route
-import React, {useState} from "react";
+import React from "react";
 import ProtectedRoute from "../../Common/AppTools/ProtectedRoute";
 import CreatePage from "./CreatePage";
+import { isAuthed } from "../../Services/AuthService";
 
 const CreateProtected = () => {
 
-    // TODO: we need to connect this to a state variable storing whether we are signed in or out at a given time
-    const [authed, setAuthed] = useState(false);
+    // authed means user is signed in - our flag is authed bc we only show this if user is logged in
+    const authed = isAuthed(); 
 
     return (
         <div>

@@ -28,3 +28,9 @@ export const loginUser = async (credentials) =>{
         alert(`Error: ${error.message}`); 
     });
 };
+
+export const isAuthed = () => {
+    const user = Parse.User.current();
+    const authed = user !== null;
+    return authed;
+};

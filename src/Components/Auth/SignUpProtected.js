@@ -1,13 +1,13 @@
 // toplevel component to run SignUpPage through a protected route
-import React, {useState} from "react";
+import React from "react";
 import ProtectedRoute from "../../Common/AppTools/ProtectedRoute";
 import SignUpPage from "./SignUpPage";
+import { isAuthed } from "../../Services/AuthService";
 
 const SignUpProtected = () => {
 
-    // TODO: we need to connect this to a state variable storing whether we are signed in or out at a given time
-    // TODO: make sure the flag works so that if signed in, we don't display signup page
-    const [authed, setAuthed] = useState(false);
+    /// authed means user is signed in - our flag is !authed bc we only show this if user is not logged in
+    const authed = isAuthed();
 
     return (
         <div>
