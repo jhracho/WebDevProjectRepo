@@ -21,6 +21,8 @@ const SignUp = () => {
       createUser(user).then((userCreated) => {
         if (userCreated) {
           alert("You have successfully registered, " + user.firstname + "!");
+
+          // Redirect user to home page after first sign up
           window.location.href = '/';
         }
       }).catch((error) => {
