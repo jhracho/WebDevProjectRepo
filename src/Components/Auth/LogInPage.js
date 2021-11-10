@@ -14,7 +14,7 @@ const LogIn = () => {
     if (creds && login) {
       loginUser(creds).then((authedUser) => {
         if (authedUser) {
-          alert('Hi!');
+          // Redirect User to home page after log in
           window.location.href = '/';
         }
       }).catch((error) => {

@@ -3,6 +3,7 @@ import Parse from "parse";
 export const createUser = (user) => {
     const newUser = new Parse.User();
     
+    // Check that passwords match
     if (user.password !== user.confirm){
         alert("Passwords do not match!");
         return Promise.resolve(false);
@@ -21,6 +22,7 @@ export const createUser = (user) => {
     });
 };
 
+// Log in user with built-in logIn() function
 export const loginUser = async (credentials) =>{
     return Parse.User.logIn(credentials.username, credentials.password).then((loggedIn) => {
         return loggedIn;

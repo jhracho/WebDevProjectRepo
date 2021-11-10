@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 
+// Depending on signup boolean, certain fields will display
 const AuthForm = ({ user, onChange, onSubmit, signup }) => {
     return(
         <form onSubmit={onSubmit} autoComplete="off">
