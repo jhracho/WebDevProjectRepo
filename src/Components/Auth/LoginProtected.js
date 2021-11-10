@@ -4,11 +4,12 @@ import ProtectedRoute from "../../Common/AppTools/ProtectedRoute";
 import LoginPage from "./LogInPage";
 import { isAuthed } from "../../Services/AuthService";
 
-const LoginProtected = () => {
+const LogInProtected = () => {
 
     // authed means user is signed in - our flag is !authed bc we only show this if user is not logged in
     const authed = isAuthed(); 
 
+    // if signed in, redirect to home page
     return (
         <div>
             <ProtectedRoute
@@ -20,4 +21,4 @@ const LoginProtected = () => {
         </div>
     );
 }
-export default LoginProtected;
+export default LogInProtected;

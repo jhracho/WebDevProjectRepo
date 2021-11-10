@@ -9,6 +9,7 @@ const SignUpProtected = () => {
     /// authed means user is signed in - our flag is !authed bc we only show this if user is not logged in
     const authed = isAuthed();
 
+    // if signed in, redirect to home page
     return (
         <div>
             <ProtectedRoute
