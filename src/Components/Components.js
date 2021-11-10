@@ -5,6 +5,7 @@ import ExplorePage from "./Explore/ExplorePage.js";
 import CreateProtected from "./Create/CreateProtected.js";
 import LoginProtected from "./Auth/LoginProtected.js";
 import SignUpProtected from "./Auth/SignUpProtected.js";
+import LogOutProtected from "./Auth/LogOutProtected.js";
 
 import NavBar from "./NavBar/NavBar.js";
 
@@ -26,6 +27,7 @@ const Components = () => {
          <Route path="/create" component={CreateProtected} />
          <Route path="/login" component={LoginProtected} />
          <Route path="/signup" component={SignUpProtected} />
+         <Route path="/logout" component={LogOutProtected} />
          <Redirect to="/" />
        </Switch>
      </Router>

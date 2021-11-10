@@ -1,5 +1,6 @@
 import Parse from "parse";
 
+// Create user with built-in signUp() function
 export const createUser = (user) => {
     const newUser = new Parse.User();
     
@@ -31,6 +32,16 @@ export const loginUser = async (credentials) =>{
     });
 };
 
+// Log out user with built in logOut() function
+export const logoutUser = async() => {
+    return Parse.User.logOut().then(() => {
+        return true;
+    }).catch((error) => {
+        alert(`Error: ${error.message}`);
+    });
+};
+
+// return whether a user is signed in (authenticated)
 export const isAuthed = () => {
     const user = Parse.User.current();
     const authed = user !== null;
