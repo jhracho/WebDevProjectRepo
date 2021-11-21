@@ -5,6 +5,7 @@ import './Styles/index.css';
 import './Styles/create.css';
 import './Styles/login.css';
 import "./Styles/signup.css";
+import "./Styles/post.css";
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
