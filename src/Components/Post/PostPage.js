@@ -10,7 +10,7 @@ const PostPage = () =>{
     
     const [post, setPost] = useState(null);
     useEffect(() => {
-        getPostById('RQ86sA2VG7').then((response) => {
+        getPostById(postID).then((response) => {
             setPost(response);
           });
     }, []);
