@@ -2,14 +2,29 @@
 import Parse from "parse";
 
 // create operation - new author
-// not used yet but should be eventually!!
-export const createAuthor = ({displayname, firstname, lastname, username}) => {
+export const createAuthorOnSignUp = (displayname, firstname, lastname, userPtr) => {
+    const Author = Parse.Object.extend("Author");
+    const newAuthor = new Author();
+    newAuthor.set("displayname", displayname);
+    newAuthor.set("firstname", firstname);
+    newAuthor.set("lastname", lastname);
+    newAuthor.set("user", userPtr);
+
+    return newAuthor.save().then((result) => {
+        return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+    });
+};
+
+export const createAuthor = ({displayname, firstname, lastname, username, bio}) => {
     const Author = Parse.Object.extend("Author");
     const author = new Author();
     author.set("displayname", displayname);
     author.set("firstname", firstname);
     author.set("lastname", lastname);
     author.set("username", username);
+    author.set("bio", bio);
 
     return author.save().then((result) => {
         return result;
@@ -25,11 +40,22 @@ export const getAuthorById = (id) => {
     });
 };
 
-// FUTURE: modify to either only pull authors connected to a given username or create separate function to do this
 // read operation - get all authors
 export const getAllAuthors = () => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
+    return query.find().then((results) => {
+        return results;
+    });
+};
+
+// read operation - get all authors tied to the current user
+export const getAuthorsForUser = () => {
+    const user = Parse.User.current();
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    query.include("user");
+    query.equalTo("user", user);
     return query.find().then((results) => {
         return results;
     });

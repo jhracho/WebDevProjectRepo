@@ -1,5 +1,5 @@
 import { createPost } from "../../Services/PostService";
-import { getAllAuthors } from "../../Services/AuthorService";
+import { getAuthorsForUser } from "../../Services/AuthorService";
 import { useEffect, useState, Fragment } from "react";
 
 const PostForm = () => {
@@ -32,15 +32,14 @@ const PostForm = () => {
 
     // this function executes once, when the page is first loaded
     // this sets the authors array, as well as initializing author to the default (first element in authors)
-    // FUTURE:  will want to only pull in authors that the user has access to (as a signed in user)
     useEffect(() => {
-        getAllAuthors().then((response) => {
+        getAuthorsForUser().then((response) => {
             setAuthors(response);
-            setAuthor(response[0]);
+            var authorName = response[0].get("displayname")
+            setAuthor(authorName);
           });
     }, []);
 
-    // FUTURE: figure out why submission isn't clearing the other text boxes and figure that out
     const onClickHandler = () => {
         var likes = 0;
         var dislikes = 0;
