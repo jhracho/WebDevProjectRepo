@@ -13,7 +13,7 @@ const SignUp = () => {
     lastname: "",
     email: "",
     password: "",
-    confirm:""
+    confirm: ""
   });
 
   const [add, setAdd] = useState(false);
@@ -23,7 +23,7 @@ const SignUp = () => {
         if (userCreated) {
           alert("You have successfully registered, " + user.firstname + "!");
 
-          var displayname = user.firstname + ' ' + user.lastname;
+          var displayname = user.username;
           var firstname = user.firstname;
           var lastname = user.lastname;
           var userPtr = userCreated.toPointer();

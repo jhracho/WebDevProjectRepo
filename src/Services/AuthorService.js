@@ -1,5 +1,6 @@
 // service with operations for parse authors
 import Parse from "parse";
+import { getCurrentUser } from "./AuthService";
 
 // create operation - new author
 export const createAuthorOnSignUp = (displayname, firstname, lastname, userPtr) => {
@@ -28,6 +29,8 @@ export const createAuthor = ({displayname, firstname, lastname, username, bio}) 
 
     return author.save().then((result) => {
         return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 
@@ -46,18 +49,22 @@ export const getAllAuthors = () => {
     const query = new Parse.Query(Author);
     return query.find().then((results) => {
         return results;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 
 // read operation - get all authors tied to the current user
 export const getAuthorsForUser = () => {
-    const user = Parse.User.current();
+    const user = getCurrentUser();
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
-    query.include("user");
     query.equalTo("user", user);
     return query.find().then((results) => {
         return results;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+        return [];
     });
 };
 
