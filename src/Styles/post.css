@@ -65,10 +65,22 @@
     transform: translate(-50%, -50%);
 }
 
-.post{
-    position: relative;
-    top: 12.5vw;
-    right: 18vw;
+#post-block{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+}
+
+#post-block p{
+    margin: 0;
+    margin-bottom: -1em;
+}
+
+#story-input{
+    white-space: pre-wrap;
+    /* &nbsp; */
 }
 
 /* Additional responsiveness for different widths */
