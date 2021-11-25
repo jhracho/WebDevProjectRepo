@@ -36,7 +36,7 @@ const Heading = (post) =>{
                 <i id='post-dislike' class="fas fa-thumbs-down">{post.post.get("dislikes")}</i>
             </div>
             
-            <div class='line'></div>
+            <div class='post-line'></div>
 
             {arr.map((paragraph) => (
                 <p>{paragraph}</p>
