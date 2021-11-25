@@ -18,7 +18,7 @@
 .post-heading h1{
     font-family: 'Bebas Neue', cursive;
     font-size: 5vw;
-    color: #004c54;
+    color: #0C2340;
     letter-spacing: 0.05em;
     transform: scale(1, 0.8);
     margin-bottom: -0.5em;
@@ -34,7 +34,7 @@
 
 .post-heading h3{
     font-family: 'Bebas Neue', cursive;
-    color: #004c54;
+    color: #0C2340;
     letter-spacing: 0.05em;
     transform: scale(1, 0.8);
     margin-bottom: 0.25em;
@@ -56,7 +56,7 @@
     margin-left: 0.5vw;
 }
 
-.line{
+.post-line{
     border-bottom: 1px solid #565a5c;
     width: 95%;
     position: absolute;
@@ -93,7 +93,7 @@
         font-size: 1.75vw;
     }
 
-    .line{
+    .post-line{
         top: 18vw;
     }
 }
@@ -118,7 +118,7 @@
         margin-top: 0.5em;
     }
 
-    .line{
+    .post-line{
         top: 30vw;
     }
 
