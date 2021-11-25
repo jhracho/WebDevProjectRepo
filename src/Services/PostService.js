@@ -122,14 +122,45 @@ export const isPostEditableCurrentUser = (postId) => {
     });
 };
 
-// read operation - get all posts by a given author
-export const getPostsByAuthor = (author) => {
+// read operation - get all posts by a given author (via id)
+export const getAllPostsByAuthor = (authorId) => {
     const Post = Parse.Object.extend("Post");
     const query = new Parse.Query(Post);
     query.include("author");
-    query.equalTo("author", author);
+    query.descending("createdAt");
     return query.find().then((results) => {
-        return results;
+        const posts = [];
+        // sort through results and only include those that are by the desired author
+        for (var i in results) {
+            if (results[i].get("author").id === authorId) {
+                posts.push(results[i]);
+            }
+        }
+        return posts;
+    });
+}
+
+// read operation - get top 5 posts by a given author (via id)
+export const getTopPostsByAuthor = (authorId) => {
+    const Post = Parse.Object.extend("Post");
+    const query = new Parse.Query(Post);
+    query.include("author");
+    query.descending("likes");
+
+    return query.find().then((results) => {
+        const posts = [];
+        // sort through results and only include those that are by the desired author
+        for (var i in results) {
+            if (results[i].get("author").id === authorId) {
+                posts.push(results[i]);
+            }
+        }
+        
+        if (posts.length > 5){
+            return posts.slice(0, 5);
+        } else {
+            return posts;
+        }
     });
 }
 

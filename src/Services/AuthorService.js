@@ -39,7 +39,10 @@ export const getAuthorById = (id) => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
     return query.get(id).then((result) => {
+        console.log('returning author obj ', result);
         return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 

@@ -10,7 +10,6 @@ const LatestPosts = () => {
     getLatestPosts().then((postResponse) => {
       setPosts(postResponse);
     });
-
   }, []);
 
   return (
