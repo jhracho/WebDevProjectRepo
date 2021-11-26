@@ -19,6 +19,7 @@ const AuthorBio = (author) =>{
                 <h5>{authorObj.get("bio")}</h5>
             </div>
             </Fragment>
+            <br></br>
         </div>
     );
 };

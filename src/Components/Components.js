@@ -29,7 +29,7 @@ const Components = () => {
          <Route path="/signup" component={SignUpProtected} />
          <Route path="/logout" component={LogOutProtected} />
          <Route path="/edit/:postId" component={EditProtected} />
-         <Route path="/author/:authorId" component={AuthorPage} />    
+         <Route path="/author/:displayname" component={AuthorPage} />    
          <Route path="/post/:id" component={PostPage} />
          <Redirect to="/" />
        </Switch>

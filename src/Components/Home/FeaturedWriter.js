@@ -31,7 +31,7 @@ const FeaturedWriter = () => {
         return (
             <Fragment>
             <div className='writer-heading'>    
-                <h2>Random Writer: <a href={'/author/' + author.id}>{author.get("displayname")}</a></h2>
+                <h2>Random Writer: <a href={'/author/' + author.get("displayname")}>{author.get("displayname")}</a></h2>
             </div>
             <div className='writer-body'>
                 { avatar && (

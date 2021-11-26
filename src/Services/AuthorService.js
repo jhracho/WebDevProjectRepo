@@ -48,6 +48,21 @@ export const getAuthorById = (id) => {
     });
 };
 
+// read operation - get author by displayname
+export const getAuthorByDisplayname = (displayname) => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    query.equalTo("displayname", displayname);
+    return query.find().then((result) => {
+        if (result.length === 0) {
+            return;
+        }
+        return result[0];
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+    });
+};
+
 // read operation - get all authors
 export const getAllAuthors = () => {
     const Author = Parse.Object.extend("Author");
@@ -79,8 +94,29 @@ export const getRandAuthor = () => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
     return query.find().then((results) => {
-        var randIndex = Math.floor(Math.random() * results.length)
+        // make sure this is a writer who has a bio
+        var randIndex = Math.floor(Math.random() * results.length);
+        while(!results[randIndex].get("bio")) {
+            randIndex = Math.floor(Math.random() * results.length);
+        }
         return results[randIndex];
+    });
+};
+
+export const isUsedDisplayname = (displayname) => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    return query.find().then((results) => {
+        console.log('in query');
+        for (var i in results) {
+            console.log(results[i].get("displayname"), displayname);
+            if (results[i].get("displayname") === displayname) {    
+                return true;
+            }
+        }
+        return false;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 
