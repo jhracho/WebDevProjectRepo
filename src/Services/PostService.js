@@ -107,18 +107,15 @@ export const isPostEditableCurrentUser = (postId) => {
         const Post = Parse.Object.extend("Post");
         const query = new Parse.Query(Post);
         query.include("author");
-        query.containedIn("author", authors);
-        query.equalTo("objectId", postId);
-        return query.find().then((results) => {
-            if (results.length === 1) {
-                return true;
-            } else {
-                return false;
+        return query.get(postId).then((result) => {
+            for (var i in authors) {
+                if (authors[i].id === result.get("author").id) {
+                    console.log('returning true');
+                    return true;
+                }
             }
+            return false;
         });
-    }).catch((error) => {
-        console.log('error: ', error);
-        return false;
     });
 };
 

@@ -7,7 +7,6 @@ import LoginProtected from "./Auth/LoginProtected.js";
 import SignUpProtected from "./Auth/SignUpProtected.js";
 import LogOutProtected from "./Auth/LogOutProtected.js";
 import EditProtected from "./Edit/EditProtected.js";
-import EditPage from "./Edit/EditPage.js";
 import AuthorPage from "./Profile/AuthorPage.js";
 
 import NavBar from "./NavBar/NavBar.js";
@@ -31,7 +30,7 @@ const Components = () => {
          <Route path="/login" component={LoginProtected} />
          <Route path="/signup" component={SignUpProtected} />
          <Route path="/logout" component={LogOutProtected} />
-         <Route path="/edit/:postId" component={EditPage} />
+         <Route path="/edit/:postId" component={EditProtected} />
          <Route path="/author/:authorId" component={AuthorPage} />
          <Redirect to="/" />
        </Switch>

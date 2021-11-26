@@ -1,11 +1,8 @@
-import {useParams} from "react-router-dom";
 import { editPost, getPostById } from "../../Services/PostService";
 import { getAuthorsForUser } from "../../Services/AuthorService";
 import React, { useEffect, useState, Fragment } from "react";
 
-const EditForm = () => {
-    const { postId } = useParams();
-
+const EditForm = (postId) => {
     // declare state variables and onChange handlers for the form inputs
     const [title, setTitle] = useState();
     const [subtitle, setSubtitle] = useState();
@@ -41,7 +38,7 @@ const EditForm = () => {
     useEffect(() => {
         getAuthorsForUser().then((response) => {
             
-            getPostById(postId).then((postResponse) => {
+            getPostById(postId.postId).then((postResponse) => {
                 setTitle(postResponse.get('title'));
                 setSubtitle(postResponse.get('subtitle'));
                 setText(postResponse.get('text'));
