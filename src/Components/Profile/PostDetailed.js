@@ -1,7 +1,8 @@
+// child component to display post information, given that post as a prop
 import {React, Fragment} from "react";
 
-// Post child component that gets props
 const PostDetailed = (post) => {
+    // handle react object creation of parse objects
     var postId = post.post.id;
     return (
         <Fragment>

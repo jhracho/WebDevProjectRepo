@@ -1,6 +1,8 @@
+// component to display biographic information about an author
 import React, {Fragment} from "react";
 
 const AuthorBio = (author) =>{
+    // handle react's weird processing of parameters as objects
     const authorObj = author.author;
     return(
         <div class='heading'>
