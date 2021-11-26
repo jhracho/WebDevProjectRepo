@@ -7,7 +7,7 @@
     left: 50%;
     top: 7.5vw;
     width: 85%;
-    height: 350%;
+    height: 200%;
     transform: translateX(-50%);
     z-index: -1;
 }
@@ -131,8 +131,81 @@
     color: #565a5c;
 }
 
+#form-header{
+    color: #0C2340;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.05em;
+    transform: scale(1, 0.8);
+}
+
+#form-subheader{
+    color: #565a5c;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+.nominate-form{
+    display: block;
+}
+
+.nominate-form input[type='text']{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #0C2340;
+    font-size: 1.5vw;
+    font-family: 'Inter', sans-serif !important;
+    width: 60%;
+}
+
+.nominate-form input[type='text']:focus{
+    outline: none;
+    border-bottom: 1px solid #0C2340;
+    background: rgb(238, 238, 238);
+}
+
+.nominate-form label{
+    font-size: 1.25vw;
+    color: #565a5c;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-left: 0.75em;
+}
+
+.nominate-form select{
+    width: 10em;
+    font-size: 1.25vw;
+    color: #565a5c;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+.nominate-form textarea{
+    background: white;
+    font-weight: 300;
+    font-size: 1.5vw;
+    width: 95%;
+    height: 50%;
+    outline: none;
+    resize: none;
+    margin-top: 1em;
+}
+
+#submit-button{
+    top: 92.5%;
+}
+
 /* Additional responsiveness for different widths */
+@media all and (max-width: 900px){
+    .line{
+        display: none;
+    }
+}
+
 @media all and (max-width: 700px){
+    .background-body{
+        height: 300%;
+    }
+
     .heading h1{
         font-size: 8vw;
     }
@@ -143,7 +216,7 @@
     }
 
     .line{
-        top: 13.5vw;
+        display: none;
     }
 
     .main-body{

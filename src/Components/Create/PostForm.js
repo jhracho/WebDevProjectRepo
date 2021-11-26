@@ -74,7 +74,7 @@ const PostForm = () => {
             <p>Sub-Heading</p>
             <input type='text' onChange={onChangeSubtitle} name='heading-input' maxlength='100' required='required' placeholder='A one-line description of your post.'/>
             <p>Story</p>
-            <textarea name='story-input' onChange={onChangeText} columns='20' rows='4' required='required' placeholder='Share your Story!'></textarea>
+            <textarea id='story-input' name='story-input' onChange={onChangeText} columns='20' rows='4' required='required' placeholder='Share your Story!'></textarea>
             <button type='button' onClick={onClickHandler} name='submit-button' id='submit-button'>Submit for Review!</button>
         </form>
     );
