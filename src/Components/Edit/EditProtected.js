@@ -1,18 +1,18 @@
-// toplevel component to run createPage through a protected route
+// toplevel component to protect EditPage (so only user who authored post can edit it)
 import React, {useState, useEffect} from "react";
 import { Redirect, Route, useParams } from "react-router-dom";
 import EditPage from "./EditPage";
 import { isPostEditableCurrentUser } from "../../Services/PostService";
 
 const EditProtected = () => {
-    // flag represents whether user can edit a post or not
     const { postId } = useParams();
     const path = "/edit/" + postId;
     const [isEditable, setIsEditable] = useState();
     const [isEditableSet, setIsEditableSet] = useState();
+
+    // determine whether post is editable and set flag accordingly
     useEffect(() => {
         isPostEditableCurrentUser(postId).then((response) => {
-            console.log('post is editable');
             setIsEditable(response);
             setIsEditableSet(true);
         });
@@ -20,7 +20,7 @@ const EditProtected = () => {
 
     // if not author of post, redirect user to public post page
     // hardcoded (instead of using <ProtectedRoute>) to facilitate parameter usage
-    // TODO: change redirect to public post page once jake creates that
+    // and wait until we've set whether it's editable, so that we don't redirect too soon
     if (isEditableSet) {
         return (
             <div>
@@ -29,7 +29,7 @@ const EditProtected = () => {
                     <EditPage postId={postId}></EditPage>
                  ) }/>
             ) : (
-                <Redirect to='/home' />
+                <Redirect to={'/post/' + postId} />
             )}
             </div>
         )

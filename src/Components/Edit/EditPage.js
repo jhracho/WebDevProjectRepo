@@ -1,3 +1,5 @@
+// toplevel page for editing an existing post
+// called from within EditProtected to ensure only authorized users can edit post
 import React from "react";
 import EditForm from "./EditForm.js";
 

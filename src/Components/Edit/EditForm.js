@@ -1,3 +1,4 @@
+// form to edit an existing post
 import { editPost, getPostById } from "../../Services/PostService";
 import { getAuthorsForUser } from "../../Services/AuthorService";
 import React, { useEffect, useState, Fragment } from "react";
@@ -33,11 +34,10 @@ const EditForm = (postId) => {
     }
 
     // this function executes once, when the page is first loaded
-    // this sets the authors array, as well as initializing author to the default (first element in authors)
-    // this function also pulls in the post ID and sets the existing values to that
+    // this sets the authors array, as well as initializing author to the current author from post
+    // this function also pulls in the post ID and sets the title/subtitle/text/likes/dislikes based on that
     useEffect(() => {
         getAuthorsForUser().then((response) => {
-            
             getPostById(postId.postId).then((postResponse) => {
                 setTitle(postResponse.get('title'));
                 setSubtitle(postResponse.get('subtitle'));
@@ -57,8 +57,14 @@ const EditForm = (postId) => {
     const onClickHandler = () => {
         // find author object based on the selected name
         var authorObj = authors.find((a => a.get("displayname") === author));
-        
-        editPost({postId, title, subtitle, text, likes, dislikes, authorObj});
+
+        // call edit post service with new information
+        editPost(postId, title, subtitle, text, likes, dislikes, authorObj).then((response) => {
+            alert(title + ' was successfully edited!');
+            window.location.href = '/post/' + postId;
+        }).catch((error) => {
+            console.error(error.code + ": " + error.message);
+        });
     };
 
     return(
