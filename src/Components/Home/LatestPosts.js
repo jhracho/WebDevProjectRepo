@@ -10,7 +10,6 @@ const LatestPosts = () => {
     getLatestPosts().then((postResponse) => {
       setPosts(postResponse);
     });
-
   }, []);
 
   return (
@@ -20,7 +19,7 @@ const LatestPosts = () => {
         <Fragment>
         {posts.map(
             (post) => (
-              <Post post={post}></Post>
+              <Post key={post.id} post={post}></Post>
         ))}
         </Fragment>
       )}

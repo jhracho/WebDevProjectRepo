@@ -14,8 +14,7 @@ const NavBar = () => {
         <ul className='left'>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
-            <li><Link to='/explore'>Explore</Link></li>
-            <li><Link to='/create'>Post</Link></li>
+            <li><Link to='/create'>Create</Link></li>
         </ul>
         <ul className='right'>
             {!authed && (
@@ -25,7 +24,10 @@ const NavBar = () => {
                 </Fragment>
             )}
             {authed && (
-                <li><Link to='/logout'>Log Out</Link></li>
+                <Fragment>
+                    <li><Link to='/profile'>My Profile</Link></li>
+                    <li><Link to='/logout'>Log Out</Link></li>
+                </Fragment>
             )}
             
         </ul>

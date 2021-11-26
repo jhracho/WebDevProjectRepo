@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AuthForm from "./AuthForm";
 import { createUser } from "../../Services/AuthService.js";
+import { createAuthorOnSignUp } from "../../Services/AuthorService";
 import { Link } from "react-router-dom";
 
 // <h4>Already have an account? <Link to="/login">Log In</Link>!</h4>
@@ -12,7 +13,7 @@ const SignUp = () => {
     lastname: "",
     email: "",
     password: "",
-    confirm:""
+    confirm: ""
   });
 
   const [add, setAdd] = useState(false);
@@ -21,6 +22,13 @@ const SignUp = () => {
       createUser(user).then((userCreated) => {
         if (userCreated) {
           alert("You have successfully registered, " + user.firstname + "!");
+
+          var displayname = user.username;
+          var firstname = user.firstname;
+          var lastname = user.lastname;
+          var userPtr = userCreated.toPointer();
+          
+          createAuthorOnSignUp(displayname, firstname, lastname, userPtr);
 
           // Redirect user to home page after first sign up
           window.location.href = '/';

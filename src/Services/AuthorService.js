@@ -1,18 +1,39 @@
 // service with operations for parse authors
 import Parse from "parse";
+import { getCurrentUser } from "./AuthService";
 
-// create operation - new author
-// not used yet but should be eventually!!
-export const createAuthor = ({displayname, firstname, lastname, username}) => {
+// create operation - new author (with condensed information)
+// called whenever a new user is created
+export const createAuthorOnSignUp = (displayname, firstname, lastname, userPtr) => {
+    const Author = Parse.Object.extend("Author");
+    const newAuthor = new Author();
+    newAuthor.set("displayname", displayname);
+    newAuthor.set("firstname", firstname);
+    newAuthor.set("lastname", lastname);
+    newAuthor.set("user", userPtr);
+
+    return newAuthor.save().then((result) => {
+        return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+    });
+};
+
+// create operation - new author (with all information)
+export const createAuthor = ({displayname, firstname, lastname, username, bio, userPtr}) => {
     const Author = Parse.Object.extend("Author");
     const author = new Author();
     author.set("displayname", displayname);
     author.set("firstname", firstname);
     author.set("lastname", lastname);
     author.set("username", username);
+    author.set("bio", bio);
+    author.set("user", userPtr);
 
     return author.save().then((result) => {
         return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 
@@ -22,16 +43,33 @@ export const getAuthorById = (id) => {
     const query = new Parse.Query(Author);
     return query.get(id).then((result) => {
         return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 
-// FUTURE: modify to either only pull authors connected to a given username or create separate function to do this
 // read operation - get all authors
 export const getAllAuthors = () => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
     return query.find().then((results) => {
         return results;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+    });
+};
+
+// read operation - get all authors tied to the current user
+export const getAuthorsForUser = () => {
+    const user = getCurrentUser();
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    query.equalTo("user", user);
+    return query.find().then((results) => {
+        return results;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+        return [];
     });
 };
 
@@ -47,8 +85,6 @@ export const getRandAuthor = () => {
 };
 
 // delete operation - delete author by id
-// not used yet but should be eventually
-// eventually may want to add some sort of feature where users can only delete authors they've created
 export const removeAuthorById = (id) => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);

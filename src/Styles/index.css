@@ -245,3 +245,10 @@
         justify-content: center;
     }
 }
+
+.main-body p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 2vw;
+    color: #565a5c;
+}
