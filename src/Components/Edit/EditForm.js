@@ -61,7 +61,7 @@ const EditForm = (postId) => {
         // call edit post service with new information
         editPost(postId, title, subtitle, text, likes, dislikes, authorObj).then((response) => {
             alert(title + ' was successfully edited!');
-            window.location.href = '/post/' + postId;
+            window.location.href = '/post/' + postId.postId;
         }).catch((error) => {
             console.error(error.code + ": " + error.message);
         });
