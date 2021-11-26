@@ -21,10 +21,10 @@ export const createPost = ({title, subtitle, text, likes, dislikes, authorObj}) 
 };
 
 // edit operation - edit post by ID
-export const editPost = ({postId, title, subtitle, text, likes, dislikes, authorObj}) => {
+export const editPost = (postId, title, subtitle, text, likes, dislikes, authorObj) => {
     const Post = Parse.Object.extend("Post");
     const query = new Parse.Query(Post);
-    return query.get(postId).then((post) => {
+    return query.get(postId.postId).then((post) => {
         post.set("title", title);
         post.set("subtitle", subtitle);
         post.set("text", text);
@@ -32,6 +32,7 @@ export const editPost = ({postId, title, subtitle, text, likes, dislikes, author
         post.set("dislikes", dislikes);
         post.set("author", authorObj);
         return post.save().then((result) => {
+            console.log('result is', result);
             return result;
         });
     });
@@ -101,7 +102,7 @@ export const getPostsCurrentUser = () => {
     }
 };
 
-// read operatoin - check if post (via postId) is by current user
+// read operation - check if post (via postId) is by current user
 export const isPostEditableCurrentUser = (postId) => {
     return getAuthorsForUser().then((authors) => {
         const Post = Parse.Object.extend("Post");
@@ -110,7 +111,6 @@ export const isPostEditableCurrentUser = (postId) => {
         return query.get(postId).then((result) => {
             for (var i in authors) {
                 if (authors[i].id === result.get("author").id) {
-                    console.log('returning true');
                     return true;
                 }
             }
@@ -152,7 +152,7 @@ export const getTopPostsByAuthor = (authorId) => {
                 posts.push(results[i]);
             }
         }
-        
+        // ensure only top 5 posts are returned
         if (posts.length > 5){
             return posts.slice(0, 5);
         } else {
@@ -162,8 +162,6 @@ export const getTopPostsByAuthor = (authorId) => {
 }
 
 // delete operation - delete post by id
-// not used yet but should be eventually
-// eventually may want to add some sort of feature where users can only delete posts they've created
 export const removePostById = (id) => {
     const Post = Parse.Object.extend("Post");
     const query = new Parse.Query(Post);

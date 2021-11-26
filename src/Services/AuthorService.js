@@ -2,7 +2,8 @@
 import Parse from "parse";
 import { getCurrentUser } from "./AuthService";
 
-// create operation - new author
+// create operation - new author (with condensed information)
+// called whenever a new user is created
 export const createAuthorOnSignUp = (displayname, firstname, lastname, userPtr) => {
     const Author = Parse.Object.extend("Author");
     const newAuthor = new Author();
@@ -18,7 +19,8 @@ export const createAuthorOnSignUp = (displayname, firstname, lastname, userPtr) 
     });
 };
 
-export const createAuthor = ({displayname, firstname, lastname, username, bio}) => {
+// create operation - new author (with all information)
+export const createAuthor = ({displayname, firstname, lastname, username, bio, userPtr}) => {
     const Author = Parse.Object.extend("Author");
     const author = new Author();
     author.set("displayname", displayname);
@@ -26,6 +28,7 @@ export const createAuthor = ({displayname, firstname, lastname, username, bio}) 
     author.set("lastname", lastname);
     author.set("username", username);
     author.set("bio", bio);
+    author.set("user", userPtr);
 
     return author.save().then((result) => {
         return result;
@@ -39,7 +42,6 @@ export const getAuthorById = (id) => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
     return query.get(id).then((result) => {
-        console.log('returning author obj ', result);
         return result;
     }).catch((error) => {
         console.error(error.code + ": " + error.message);
@@ -83,8 +85,6 @@ export const getRandAuthor = () => {
 };
 
 // delete operation - delete author by id
-// not used yet but should be eventually
-// eventually may want to add some sort of feature where users can only delete authors they've created
 export const removeAuthorById = (id) => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
