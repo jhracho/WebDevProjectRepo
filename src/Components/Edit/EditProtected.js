@@ -20,6 +20,7 @@ const EditProtected = () => {
 
     // if not author of post, redirect user to public post page
     // hardcoded (instead of using <ProtectedRoute>) to facilitate parameter usage
+    // TODO: change redirect to public post page once jake creates that
     if (isEditableSet) {
         return (
             <div>
