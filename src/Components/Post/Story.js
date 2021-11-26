@@ -8,7 +8,7 @@ const Heading = (post) =>{
         getAuthorById(post.post.get("author").id).then((response) => {
             setAuthor(response);
           });
-    }, []);
+    }, [post]);
 
     // Manipulate the createdAt property to make it user-readable
     const createdAt = post.post.createdAt.toString().split(" ").slice(0,5).join(" ");
@@ -17,7 +17,7 @@ const Heading = (post) =>{
     const arr = post.post.get('text').split('\n');
     var i = 0;
     while (i < arr.length) {
-        if (arr[i] == '') {
+        if (arr[i] === '') {
             arr.splice(i, 1);
         } 
         else {

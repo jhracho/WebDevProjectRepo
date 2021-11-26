@@ -13,7 +13,7 @@ const PostPage = () =>{
         getPostById(postID).then((response) => {
             setPost(response);
           });
-    }, []);
+    }, [postID]);
 
     // Leading Indent or &nbsp; or \n\n
     return(
