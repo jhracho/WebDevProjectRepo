@@ -47,3 +47,9 @@ export const isAuthed = () => {
     const authed = user !== null;
     return authed;
 };
+
+// return current user
+export const getCurrentUser = () => {
+    const user = Parse.User.current();
+    return user;
+}

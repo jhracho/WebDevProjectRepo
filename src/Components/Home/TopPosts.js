@@ -1,6 +1,7 @@
 import { getTopPosts } from "../../Services/PostService";
 import React, { useEffect, useState, Fragment } from "react";
 import Post from "./Post";
+
 const TopPosts = () => {
   const [posts, setPosts] = useState([]);
   // Calls the post service to get the top 5 most liked posts in the past week
@@ -19,7 +20,7 @@ const TopPosts = () => {
         <Fragment>
         {posts.map(
             (post) => (
-                <Post post={post}></Post>
+                <Post key={post.id} post={post}></Post>
         ))}
         </Fragment>
       )}

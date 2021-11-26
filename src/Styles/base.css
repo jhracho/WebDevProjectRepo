@@ -67,6 +67,10 @@ body{
     top: 25%;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 @media all and (max-width: 800px){
     .navbar{
