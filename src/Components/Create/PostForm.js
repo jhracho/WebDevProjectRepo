@@ -46,7 +46,14 @@ const PostForm = () => {
         // find author object based on the selected name
         var authorObj = authors.find((a => a.get("displayname") === author));
         
-        createPost({title, subtitle, text, likes, dislikes, authorObj});
+        // when post is created successfully, notify user and navigate to home page
+        createPost({title, subtitle, text, likes, dislikes, authorObj}).then((response) => {
+            console.log(response.id);
+            alert(title + ' was successfully created!');
+            window.location.href = '/post/' + response.id;
+        }).catch((error) => {
+            console.error(error.code + ": " + error.message);
+        });
     };
 
     return(
