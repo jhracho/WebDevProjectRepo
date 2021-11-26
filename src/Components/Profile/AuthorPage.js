@@ -18,7 +18,7 @@ const AuthorPage = () => {
     }, [authorId]);
 
     return(
-      <div class='background-body'>
+      <div className='background-body'>
         { author && (
             <Fragment>
                 <AuthorBio author={author}/>

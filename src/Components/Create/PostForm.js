@@ -63,16 +63,16 @@ const PostForm = () => {
                 <p>Author</p>
                 <select name='author-input' required='required' onChange={onChangeAuthor}>
                 {authors.map(
-                    (author) => (
-                        <option value={author.author}>{author.get("displayname")}</option>
+                    (author, i) => (
+                        <option key={i} value={author.author}>{author.get("displayname")}</option>
                     ))}
                 </select>
             </Fragment>
             )}
             <p>Title</p>
-            <input type='text' onChange={onChangeTitle} name='title-input' maxlength='50' required='required' placeholder='What should your post be called?'/>
+            <input type='text' onChange={onChangeTitle} name='title-input' maxLength='50' required='required' placeholder='What should your post be called?'/>
             <p>Sub-Heading</p>
-            <input type='text' onChange={onChangeSubtitle} name='heading-input' maxlength='100' required='required' placeholder='A one-line description of your post.'/>
+            <input type='text' onChange={onChangeSubtitle} name='heading-input' maxLength='100' required='required' placeholder='A one-line description of your post.'/>
             <p>Story</p>
             <textarea id='story-input' name='story-input' onChange={onChangeText} columns='20' rows='4' required='required' placeholder='Share your Story!'></textarea>
             <button type='button' onClick={onClickHandler} name='submit-button' id='submit-button'>Submit for Review!</button>

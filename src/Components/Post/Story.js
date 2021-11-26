@@ -27,19 +27,19 @@ const Heading = (post) =>{
 
     return(
         <Fragment>
-            <div class='post-heading'>
+            <div className='post-heading'>
                 <h1>{post.post.get("title")}</h1>
                 <h2><em>{post.post.get("subtitle")}</em></h2>
                 <h3>{author && author.get('displayname')} | {createdAt}</h3>
 
-                <i id='post-like' class="fas fa-thumbs-up">{post.post.get("likes")}</i>
-                <i id='post-dislike' class="fas fa-thumbs-down">{post.post.get("dislikes")}</i>
+                <i id='post-like' className="fas fa-thumbs-up">{post.post.get("likes")}</i>
+                <i id='post-dislike' className="fas fa-thumbs-down">{post.post.get("dislikes")}</i>
             </div>
             
-            <div class='post-line'></div>
+            <div className='post-line'></div>
 
-            {arr.map((paragraph) => (
-                <p>{paragraph}</p>
+            {arr.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
             ))}
         </Fragment>
     );

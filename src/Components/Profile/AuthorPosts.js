@@ -16,7 +16,7 @@ const AuthorPosts = (author) =>{
 
     // display detailed version of posts to show subtitle - if no posts, say so
     return(
-        <div class='column author-module'>
+        <div className='column author-module'>
       {posts.length > 0 ? (
         <Fragment>
         <h2>Top Posts by {author.author.get("displayname")}:</h2>

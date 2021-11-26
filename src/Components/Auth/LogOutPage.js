@@ -16,7 +16,7 @@ const LogOut = () => {
     }, []);
 
   return(
-    <div class='login-box'>
+    <div className='login-box'>
         <h1>Logging Out!</h1>
         <br></br>
         <h4>Need to log in again? <Link to='/login'>Log In</Link>!</h4>

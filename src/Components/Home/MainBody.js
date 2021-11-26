@@ -6,7 +6,7 @@ import WriterForm from "./WriterForm";
 
 const MainBody = () =>{
     return(
-        <div class='main-body'>
+        <div className='main-body'>
             <LatestPosts />
             <TopPosts />
             <FeaturedWriter />

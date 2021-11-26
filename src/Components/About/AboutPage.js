@@ -4,7 +4,7 @@ import Body from "./Body";
 
 const About = () => {
     return(
-      <div class='background-body'>
+      <div className='background-body'>
           <Heading />
           <Body />
       </div>      

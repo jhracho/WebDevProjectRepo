@@ -17,7 +17,7 @@ const PostPage = () =>{
 
     // Leading Indent or &nbsp; or \n\n
     return(
-        <div class='post-box'>
+        <div className='post-box'>
             {post && <Story post={post}/>} 
         </div>
     );
