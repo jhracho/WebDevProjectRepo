@@ -6,8 +6,9 @@ import LoginProtected from "./Auth/LoginProtected.js";
 import SignUpProtected from "./Auth/SignUpProtected.js";
 import LogOutProtected from "./Auth/LogOutProtected.js";
 import EditProtected from "./Edit/EditProtected.js";
-import AuthorPage from "./Profile/AuthorPage.js";
+import AuthorPage from "./Author/AuthorPage.js";
 import PostPage from "./Post/PostPage.js";
+import ProfileProtected from "./Profile/ProfileProtected.js"
 import NavBar from "./NavBar/NavBar.js";
 
 import{
@@ -31,6 +32,7 @@ const Components = () => {
          <Route path="/edit/:postId" component={EditProtected} />
          <Route path="/author/:displayname" component={AuthorPage} />    
          <Route path="/post/:id" component={PostPage} />
+         <Route path="/profile" component={ProfileProtected} />
          <Redirect to="/" />
        </Switch>
      </Router>

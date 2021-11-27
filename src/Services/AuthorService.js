@@ -37,6 +37,23 @@ export const createAuthor = ({displayname, firstname, lastname, username, bio, u
     });
 };
 
+export const editAuthor = (authorId, displayname, firstname, lastname, bio) => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    return query.get(authorId).then((author) => {
+        author.set("displayname", displayname);
+        author.set("firstname", firstname);
+        author.set("lastname", lastname);
+        author.set("bio", bio);
+
+        return author.save().then((result) => {
+            return result;
+        }).catch((error) => {
+            console.error(error.code + ": " + error.message);
+        });
+    });
+};
+
 // read operation - get author by id
 export const getAuthorById = (id) => {
     const Author = Parse.Object.extend("Author");

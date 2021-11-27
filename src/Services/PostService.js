@@ -94,7 +94,7 @@ export const getPostsCurrentUser = () => {
                 return results;
             });
         }).catch((error) => {
-            console.log('error: ', error);
+            console.error(error.code + ": " + error.message);
             return;
         });
     } else {

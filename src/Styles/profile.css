@@ -1,0 +1,150 @@
+/* CSS for profile/author pages */
+.main-body p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 2vw;
+    color: #565a5c;
+}
+
+.profile-data h3{
+    font-size: 3.5vw;
+    font-family: 'Bebas Neue', cursive;
+    color: #0C2340;
+}
+
+.profile-align{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile-left {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0;
+    
+}
+
+.profile-right {
+    float: right;
+    vertical-align: middle;
+    margin: 2vw 0;
+}
+
+.column p{
+    font-family: 'Inter', sans-serif;
+    color: #0C2340;
+}
+
+#profile-button{
+    color: white;
+    background: #0C2340;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2vw;
+    letter-spacing: .07em;
+}
+
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    margin-bottom: 1em;
+}
+
+.profile-parent{
+  flex-flow: row wrap;
+  justify-content: stretch;
+
+  list-style: none;
+  margin: 50px;
+}
+
+.profile-parent h1{
+    margin: 0;
+}
+
+.profile-parent line{
+    top: 12vw;
+}
+
+.post-section{
+  display: grid;
+  grid-auto-rows: 8vw;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1em;
+  margin-left: 0;
+}
+
+.column .post-section a{
+    margin-left: 0;
+}
+
+.column .profile-align a{
+    margin-left: 0;
+}
+
+.post-section h4{
+    color: #0C2340;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5vw;
+    margin-left: 0;
+}
+
+.post-section h4 i{
+    color: #0C2340;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5vw;
+    font-weight: normal;
+}
+
+ProfilePost{
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Text input CSS */
+.profile-box input[type='text'], input[type='password']{
+    display: block;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #0C2340;
+    font-size: 1.5vw;
+    font-family: 'Inter', sans-serif !important;
+    width: 60%;
+}
+
+.profile-box input[type='text']:focus, input[type='password']:focus{
+    outline: none;
+    border-bottom: 1px solid #0C2340;
+    background: rgb(238, 238, 238);
+}
+
+.profile-box textarea{
+    background: white;
+    width: 100%;
+    height: 50%;
+    outline: none;
+    resize: none;
+}
+
+.profile-box textarea::placeholder{
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom scrollbar for textarea */
+.profile-box textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.profile-box textarea::-webkit-scrollbar-track {
+    background-color: rgb(238, 238, 238);
+}
+
+.profile-box textarea::-webkit-scrollbar-thumb {
+    background-color: #0C2340;
+    border-radius: 3px;
+}
