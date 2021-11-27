@@ -30,10 +30,10 @@ const FeaturedWriter = () => {
     if (author) {
         return (
             <Fragment>
-            <div class='writer-heading'>    
-                <h2>Random Writer: <a href={'/author/' + author.id}>{author.get("displayname")}</a></h2>
+            <div className='writer-heading'>    
+                <h2>Random Writer: <a href={'/author/' + author.get("displayname")}>{author.get("displayname")}</a></h2>
             </div>
-            <div class='writer-body'>
+            <div className='writer-body'>
                 { avatar && (
                     <img src={avatarURL} title="Writer Headshot" alt={author.get("displayname")}></img>
                 )}
@@ -44,7 +44,7 @@ const FeaturedWriter = () => {
     }
     else {
         return (
-            <div class='writer-heading'>    
+            <div className='writer-heading'>    
                 <h2>No Writers Found</h2>
             </div>
         );

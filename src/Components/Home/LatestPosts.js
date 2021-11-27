@@ -13,7 +13,7 @@ const LatestPosts = () => {
   }, []);
 
   return (
-    <div class='column latest-module'>
+    <div className='column latest-module'>
       <h2>Latest Posts:</h2>
       {posts.length > 0 && (
         <Fragment>

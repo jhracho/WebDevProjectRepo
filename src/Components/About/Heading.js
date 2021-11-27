@@ -2,10 +2,10 @@ import React from "react";
 
 const Heading = () =>{
     return(
-        <div class='heading'>
+        <div className='heading'>
             <h1>About The Shamrock</h1>
             <h2><i>Who we are and what we do...</i></h2>
-            <div class='line'></div>
+            <div className='line'></div>
         </div>
     );
 };

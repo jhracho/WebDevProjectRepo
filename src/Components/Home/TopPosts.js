@@ -13,7 +13,7 @@ const TopPosts = () => {
   }, []);
  
   return (
-    <div class='column latest-module'>
+    <div className='column latest-module'>
       <h2>Top Posts:</h2>
       {posts.length > 0 && (
         // Passing props

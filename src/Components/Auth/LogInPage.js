@@ -39,7 +39,7 @@ const LogIn = () => {
   };
 
   return(
-    <div class='login-box'>
+    <div className='login-box'>
         <h1>Welcome back!</h1>
         <AuthForm
           signup={false}

@@ -5,7 +5,7 @@ import MainBody from "./MainBody";
 // Overall outline for the home page
 const HomePage = () =>{
     return (
-    <div class='background-body'>
+    <div className='background-body'>
         <Heading />
         <MainBody />
     </div>
