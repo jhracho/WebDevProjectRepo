@@ -16,7 +16,6 @@ const ProfilePage = () => {
     useEffect(() => {
         getAuthorsForUser().then((response) => {
             setAuthors(response);
-            console.log(response);
         })
     }, []);
     

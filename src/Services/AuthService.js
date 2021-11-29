@@ -53,3 +53,22 @@ export const getCurrentUser = () => {
     const user = Parse.User.current();
     return user;
 }
+
+// call cloud code function to update user's information (not pwd)
+export const updateUser = async (id, username, firstname, lastname, email) => {
+    const userParams = {objectId:id, username:username, firstname:firstname, lastname:lastname, email:email};
+    const editedSuccessfully = await Parse.Cloud.run('editUserProperties', userParams);
+    return editedSuccessfully;
+}
+
+// call cloud code function to update user's password
+export const updatePassword = async (id, username, password) => {
+    const userParams = {objectId:id, username:username, password:password};
+    const editedSuccessfully = await Parse.Cloud.run('editUserPassword', userParams);
+    return editedSuccessfully;
+}
+
+export const testHello = async () => {
+    const helloFunction = await Parse.Cloud.run("hello");
+    return helloFunction;
+}
