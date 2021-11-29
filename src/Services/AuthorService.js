@@ -40,18 +40,31 @@ export const createAuthor = ({displayname, firstname, lastname, username, bio, u
 export const editAuthor = (authorId, displayname, firstname, lastname, bio) => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
-    return query.get(authorId).then((author) => {
-        author.set("displayname", displayname);
-        author.set("firstname", firstname);
-        author.set("lastname", lastname);
-        author.set("bio", bio);
-
-        return author.save().then((result) => {
-            return result;
-        }).catch((error) => {
-            console.error(error.code + ": " + error.message);
+    const query2 = new Parse.Query(Author);
+    return query2.find().then((results) => {
+        console.log(results);
+        for (var i in results){
+            console.log(results[i].get('displayname'));
+            if (results[i].id !== authorId && results[i].get("displayname") === displayname) {
+                alert(displayname + ' is not  a unique display name, please try again');
+                return false;
+            }
+        }
+        return query.get(authorId).then((author) => {
+            author.set("displayname", displayname);
+            author.set("firstname", firstname);
+            author.set("lastname", lastname);
+            author.set("bio", bio);
+    
+            return author.save().then((result) => {
+                return result;
+            }).catch((error) => {
+                console.error(error.code + ": " + error.message);
+            });
         });
     });
+
+    
 };
 
 // read operation - get author by id

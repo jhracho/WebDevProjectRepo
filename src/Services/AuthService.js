@@ -67,8 +67,3 @@ export const updatePassword = async (id, username, password) => {
     const editedSuccessfully = await Parse.Cloud.run('editUserPassword', userParams);
     return editedSuccessfully;
 }
-
-export const testHello = async () => {
-    const helloFunction = await Parse.Cloud.run("hello");
-    return helloFunction;
-}

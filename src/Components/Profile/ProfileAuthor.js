@@ -49,8 +49,12 @@ const ProfileAuthor = (author) =>{
     };
 
     const onClickHandlerSave = () => {
-        setEditMode(false);
-        editAuthor(author.author.id, displayname, firstname, lastname, bio);
+        editAuthor(author.author.id, displayname, firstname, lastname, bio).then((response) => {
+            // only switch back to editing mode if edit is successful
+            if (response) {
+                setEditMode(false);
+            }
+        });
     };
 
     return (
