@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
+    steps: |
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Deploy
         uses: appleboy/ssh-action@v0.1.2
