@@ -4,6 +4,7 @@ import { getCurrentUser } from "../../Services/AuthService";
 import ProfileHeader from "./ProfileHeader";
 import ProfileAuthor from "./ProfileAuthor";
 import ProfileBio from "./ProfileBio";
+import AuthorForm from "./AuthorForm";
 import { getAuthorsForUser } from "../../Services/AuthorService";
 
 const ProfilePage = () => {
@@ -39,6 +40,7 @@ const ProfilePage = () => {
                                 <ProfileAuthor key={author.id} author={author}></ProfileAuthor>
                         ))}
                         </Fragment>
+                        <AuthorForm></AuthorForm>
                     </div> 
                 </div>    
             </Fragment>

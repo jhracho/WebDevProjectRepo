@@ -165,7 +165,7 @@ const ProfileBio = (user) =>{
                     </Fragment>
             )
         }
-            </div>
+        </div>
     );
 };
 

@@ -34,9 +34,15 @@ const PostForm = () => {
     // this sets the authors array, as well as initializing author to the default (first element in authors)
     useEffect(() => {
         getAuthorsForUser().then((response) => {
-            setAuthors(response);
-            var authorName = response[0].get("displayname")
-            setAuthor(authorName);
+            if (response.length === 0) {
+                alert('No existing author objects - use form on profile to create one!');
+                window.location.href = '/profile';
+            }
+            else {
+                setAuthors(response);
+                var authorName = response[0].get("displayname")
+                setAuthor(authorName);
+            }
           });
     }, []);
 

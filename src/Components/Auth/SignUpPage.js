@@ -17,18 +17,18 @@ const SignUp = () => {
   });
 
   const [add, setAdd] = useState(false);
+  
   useEffect(() => {
     if (user && add) {
       createUser(user).then((userCreated) => {
         if (userCreated) {
-          alert("You have successfully registered, " + user.firstname + "!");
-
           var displayname = user.username;
           var firstname = user.firstname;
           var lastname = user.lastname;
           var userPtr = userCreated.toPointer();
           
           createAuthorOnSignUp(displayname, firstname, lastname, userPtr);
+          alert("You have successfully registered, " + user.firstname + "!");
 
           // Redirect user to home page after first sign up
           window.location.href = '/';
