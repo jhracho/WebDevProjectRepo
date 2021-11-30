@@ -1,3 +1,4 @@
+// component with form to create a new author
 import React, { useState } from "react";
 import { getCurrentUser } from "../../Services/AuthService";
 import { createAuthor } from "../../Services/AuthorService";
