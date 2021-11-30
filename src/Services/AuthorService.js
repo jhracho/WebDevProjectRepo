@@ -20,21 +20,61 @@ export const createAuthorOnSignUp = (displayname, firstname, lastname, userPtr) 
 };
 
 // create operation - new author (with all information)
-export const createAuthor = ({displayname, firstname, lastname, username, bio, userPtr}) => {
+export const createAuthor = (displayname, firstname, lastname, bio, userPtr) => {
     const Author = Parse.Object.extend("Author");
-    const author = new Author();
-    author.set("displayname", displayname);
-    author.set("firstname", firstname);
-    author.set("lastname", lastname);
-    author.set("username", username);
-    author.set("bio", bio);
-    author.set("user", userPtr);
+    const query = new Parse.Query(Author);
+    // ensure that we are creating an author with a distinct displayname
+    return query.find().then((results) => {
+        for (var i in results){
+            if (results[i].get("displayname") === displayname) {
+                alert(displayname + ' is not a unique display name, please try again');
+                return false;
+            }
+        }
+        
+        const author = new Author();
+        author.set("displayname", displayname);
+        author.set("firstname", firstname);
+        author.set("lastname", lastname);
+        author.set("bio", bio);
+        author.set("user", userPtr);
 
-    return author.save().then((result) => {
-        return result;
-    }).catch((error) => {
-        console.error(error.code + ": " + error.message);
+        return author.save().then((result) => {
+            return result;
+        }).catch((error) => {
+            console.error(error.code + ": " + error.message);
+        });
+    })
+
+    
+};
+
+export const editAuthor = (authorId, displayname, firstname, lastname, bio) => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    const query2 = new Parse.Query(Author);
+    return query2.find().then((results) => {
+        for (var i in results){
+            if (results[i].id !== authorId && results[i].get("displayname") === displayname) {
+                alert(displayname + ' is not a unique display name, please try again');
+                return false;
+            }
+        }
+        return query.get(authorId).then((author) => {
+            author.set("displayname", displayname);
+            author.set("firstname", firstname);
+            author.set("lastname", lastname);
+            author.set("bio", bio);
+    
+            return author.save().then((result) => {
+                return result;
+            }).catch((error) => {
+                console.error(error.code + ": " + error.message);
+            });
+        });
     });
+
+    
 };
 
 // read operation - get author by id
@@ -43,6 +83,21 @@ export const getAuthorById = (id) => {
     const query = new Parse.Query(Author);
     return query.get(id).then((result) => {
         return result;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
+    });
+};
+
+// read operation - get author by displayname
+export const getAuthorByDisplayname = (displayname) => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    query.equalTo("displayname", displayname);
+    return query.find().then((result) => {
+        if (result.length === 0) {
+            return;
+        }
+        return result[0];
     }).catch((error) => {
         console.error(error.code + ": " + error.message);
     });
@@ -79,8 +134,29 @@ export const getRandAuthor = () => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
     return query.find().then((results) => {
-        var randIndex = Math.floor(Math.random() * results.length)
+        // make sure this is a writer who has a bio
+        var randIndex = Math.floor(Math.random() * results.length);
+        while(!results[randIndex].get("bio")) {
+            randIndex = Math.floor(Math.random() * results.length);
+        }
         return results[randIndex];
+    });
+};
+
+export const isUsedDisplayname = (displayname) => {
+    const Author = Parse.Object.extend("Author");
+    const query = new Parse.Query(Author);
+    return query.find().then((results) => {
+        console.log('in query');
+        for (var i in results) {
+            console.log(results[i].get("displayname"), displayname);
+            if (results[i].get("displayname") === displayname) {    
+                return true;
+            }
+        }
+        return false;
+    }).catch((error) => {
+        console.error(error.code + ": " + error.message);
     });
 };
 

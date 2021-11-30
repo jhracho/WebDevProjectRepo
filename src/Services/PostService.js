@@ -38,6 +38,23 @@ export const editPost = (postId, title, subtitle, text, likes, dislikes, authorO
     });
 }
 
+// edit operation - increase number of likes or dislikes on post, based on ID
+export const likePost = (postId, like) => {
+    const Post = Parse.Object.extend("Post");
+    const query = new Parse.Query(Post);
+    return query.get(postId).then((post) => {
+        if (like === 1) {
+            post.set("likes", post.get("likes") + 1);
+        }
+        else if (like === -1) {
+            post.set("dislikes", post.get("dislikes") + 1);
+        }
+        return post.save().then((result) => {
+            return result;
+        });
+    });
+}
+
 // read operation - get post by id
 export const getPostById = (postId) => {
     const Post = Parse.Object.extend("Post");
@@ -94,7 +111,7 @@ export const getPostsCurrentUser = () => {
                 return results;
             });
         }).catch((error) => {
-            console.log('error: ', error);
+            console.error(error.code + ": " + error.message);
             return;
         });
     } else {
