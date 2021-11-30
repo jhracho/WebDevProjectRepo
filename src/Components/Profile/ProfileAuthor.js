@@ -104,7 +104,7 @@ const ProfileAuthor = (author) =>{
                     <div className='post-section'>
                         {posts.map(
                             (post) => (
-                                <ProfilePost key={author.id} post={post}></ProfilePost>
+                                <ProfilePost key={post.id} post={post}></ProfilePost>
                         ))}
                     </div>
                     </Fragment>

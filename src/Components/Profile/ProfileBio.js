@@ -133,7 +133,7 @@ const ProfileBio = (user) =>{
                             </div>
                             <div className='profile-right'>
                                 <select name='edit-pwd-mode-input' required='required' onChange={onChangeEditPwdMode}>
-                                    <option value='No' selected>No</option>
+                                    <option value='No' defaultValue>No</option>
                                     <option value='Yes'>Yes</option>
                                 </select>
                             </div>
