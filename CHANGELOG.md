@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.4] - 2021-11-30
+### Added
+- Edit page allows users to edit existing posts
+- Author pages display public-facing information about each author (route: /author/:displayname)
+- Profile page allows user to edit private login information and public author information
+- New authors can be created on profile page
+
+### Changed
+- Create page redirects to author creation on profile if no authors exist
+- After successful post creation, user is redirected to home page
+- Clicking on the like or dislike buttons on a post changes their number of likes/dislikes
+
+### Removed
+- Explore page has been removed
+
+
+## [0.3.3] - 2021-11-24
+### Added
+- Post page allows users to view full text and like/dislike count of any post
+
+### Changed
+- Post title (on homepage) is now link to full Post page
+
+
 ## [0.3.0] - 2021-11-10
 ### Added
 - NavBar hides Log In and Sign Up when authenticated
