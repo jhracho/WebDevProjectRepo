@@ -49,8 +49,12 @@ const ProfileAuthor = (author) =>{
     };
 
     const onClickHandlerSave = () => {
-        setEditMode(false);
-        editAuthor(author.author.id, displayname, firstname, lastname, bio);
+        editAuthor(author.author.id, displayname, firstname, lastname, bio).then((response) => {
+            // only switch back to editing mode if edit is successful
+            if (response) {
+                setEditMode(false);
+            }
+        });
     };
 
     return (
@@ -77,8 +81,6 @@ const ProfileAuthor = (author) =>{
                             <input type='text' onChange={onChangeLastname} name='lastname-input' maxLength='50' required='required' value={lastname}/>
                         <p>Bio: </p>
                             <textarea name='bio-input' onChange={onChangeBio} columns='100' rows='4' required='required' value={bio}></textarea>
-                        <p>Avatar: </p>
-                            <input type="file" id="avatar" name='avatar-input'></input>
                         </form>
                     </div>
                 </Fragment>
