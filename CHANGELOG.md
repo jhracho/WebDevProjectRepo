@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Create page redirects to author creation on profile if no authors exist
-- After successful post creation, user is redirected to home page
+- After successful post creation, user is redirected to page of their post
 - Clicking on the like or dislike buttons on a post changes their number of likes/dislikes
 
 ### Removed
