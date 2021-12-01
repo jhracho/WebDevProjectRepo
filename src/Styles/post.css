@@ -7,7 +7,7 @@
     left: 50%;
     top: 7.5vw;
     width: 85%;
-    min-height: 100%;
+    overflow: auto;
     transform: translateX(-50%);
     z-index: -1;
     padding-left: 2.5em;
@@ -81,6 +81,11 @@
 #story-input{
     white-space: pre-wrap;
     /* &nbsp; */
+}
+
+#post-text-area{
+    display: block;
+    overflow: auto;
 }
 
 /* Additional responsiveness for different widths */
