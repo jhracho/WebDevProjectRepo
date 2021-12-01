@@ -60,9 +60,11 @@ const Heading = (post) =>{
             
             <div className='post-line'></div>
 
-            {arr.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-            ))}
+            <div id='post-text-area'>
+                {arr.map((paragraph, i) => (
+                    <h2 key={i}>{paragraph}</h2>
+                ))}
+            </div>
         </Fragment>
     );
 };
