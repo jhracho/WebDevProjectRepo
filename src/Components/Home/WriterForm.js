@@ -3,11 +3,11 @@ import React from "react";
 const WriterForm = () =>{
     return (
         <div>
-            <h1 id="form-header">Nominate Your Favorite Writer!</h1>
-            <h4 id="form-subheader"><em>Fill out this form to nominate a writer for Writer of the Month!</em></h4>
+            <h1 id="form-header">Nominate Your Favorite Author!</h1>
+            <h4 id="form-subheader"><em>Fill out this form to nominate an author for Author of the Month!</em></h4>
             <div className='nominate-form'>
                 <form method='post' action='#'>
-                    <input type='text' placeholder='Writer Screen Name' id='writer-input'/>
+                    <input type='text' placeholder='Author Display Name' id='writer-input'/>
                     <label htmlFor='type-select'>Who are you?</label>
                     <select name='type-select' id='type-select'>
                         <option value='Student'>Student</option>

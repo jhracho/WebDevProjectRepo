@@ -134,7 +134,7 @@ export const getRandAuthor = () => {
     const Author = Parse.Object.extend("Author");
     const query = new Parse.Query(Author);
     return query.find().then((results) => {
-        // make sure this is a writer who has a bio
+        // make sure this is an author who has a bio
         var randIndex = Math.floor(Math.random() * results.length);
         while(!results[randIndex].get("bio")) {
             randIndex = Math.floor(Math.random() * results.length);
