@@ -58,7 +58,7 @@ const AuthForm = ({ user, onChange, onSubmit, signup }) => {
                     />
                     <input 
                         type='submit' 
-                        id='submit-button' 
+                        id='signup-button' 
                         value='Create an Account'
                     />
                 </Fragment> 
@@ -77,7 +77,7 @@ const AuthForm = ({ user, onChange, onSubmit, signup }) => {
                     />
                     <input 
                         type='submit' 
-                        id='submit-button' 
+                        id='login-button' 
                         value='Log In'
                     />
                 </Fragment>

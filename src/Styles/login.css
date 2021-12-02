@@ -20,6 +20,10 @@
     width: 100%;
 }
 
+.login-box input[type='password']{
+    width: 100%;
+}
+
 .login-box input[type='text']:focus, input[type='password']:focus{
     outline: none;
     border-bottom: 1px solid #0C2340;
@@ -32,7 +36,7 @@
 }
 
 /* Form button CSS */
-.login-box input[type='submit']{
+#login-button{
     color: white;
     width: 12vw;
     height: 2vw;
