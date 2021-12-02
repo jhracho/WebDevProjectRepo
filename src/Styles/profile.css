@@ -147,3 +147,7 @@ ProfilePost{
     background-color: #0C2340;
     border-radius: 3px;
 }
+
+.author-module{
+    flex: 10% 0;
+}
