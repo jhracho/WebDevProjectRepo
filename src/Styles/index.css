@@ -1,13 +1,12 @@
 /* White strip on background of page */
 .background-body{
     background-color: white;
-    display: flex;
-    flex-flow: column wrap;
     position: absolute;
     left: 50%;
     top: 7.5vw;
     width: 85%;
-    height: 200%;
+    margin: auto;
+    padding-bottom: 1em;
     transform: translateX(-50%);
     z-index: -1;
 }
@@ -191,7 +190,11 @@
 }
 
 #submit-button{
-    top: 92.5%;
+    top: 90%;
+}
+
+.column a:hover{
+    color: #1d508f;
 }
 
 /* Additional responsiveness for different widths */

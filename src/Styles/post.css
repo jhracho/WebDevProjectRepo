@@ -5,6 +5,7 @@
     left: 50%;
     top: 7.5vw;
     width: 85%;
+    min-height: 75%;
     margin: auto;
     transform: translateX(-50%);
     z-index: -1;
