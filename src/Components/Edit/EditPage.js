@@ -5,7 +5,7 @@ import EditForm from "./EditForm.js";
 
 const Edit = (postId) => {
     return(
-      <div class='post-box'>
+      <div className='create-box'>
           <h1>Edit Your Post</h1>
           <div class='line'></div>
           <EditForm postId={postId.postId}/>
