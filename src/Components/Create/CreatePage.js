@@ -3,7 +3,7 @@ import PostForm from "./PostForm";
 
 const Create = () => {
     return(
-      <div className='post-box'>
+      <div className='create-box'>
           <h1>Share Your Story</h1>
           <div className='line'></div>
           <PostForm />

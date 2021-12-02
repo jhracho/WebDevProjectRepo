@@ -1,13 +1,11 @@
 /* White Background */
 .post-box{    
     background-color: white;
-    display: flex;
-    flex-flow: column wrap;
     position: absolute;
     left: 50%;
     top: 7.5vw;
     width: 85%;
-    overflow: auto;
+    margin: auto;
     transform: translateX(-50%);
     z-index: -1;
     padding-left: 2.5em;
@@ -85,7 +83,6 @@
 
 #post-text-area{
     display: block;
-    overflow: auto;
 }
 
 /* Additional responsiveness for different widths */
