@@ -72,7 +72,6 @@
 
 .post-section{
   display: grid;
-  grid-auto-rows: 8vw;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1em;
   margin-left: 0;
