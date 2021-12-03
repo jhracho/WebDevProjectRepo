@@ -2,7 +2,6 @@ import React from "react";
 import LatestPosts from "./LatestPosts";
 import TopPosts from "./TopPosts";
 import FeaturedWriter from "./FeaturedWriter";
-import WriterForm from "./WriterForm";
 
 const MainBody = () =>{
     return(
@@ -10,7 +9,6 @@ const MainBody = () =>{
             <LatestPosts />
             <TopPosts />
             <FeaturedWriter />
-            <WriterForm />
         </div>
     );
 };
