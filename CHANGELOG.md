@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.4.0] - 2021-12-04
 ### Added
 - deploy.sh script that runs on Droplet
-- nginx config files
+- nginx config file
 
 ### Changed
 - Various bug fixes and syntax changes to remove console errors
