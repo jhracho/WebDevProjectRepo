@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.0] - 2021-12-04
+### Added
+- deploy.sh script that runs on Droplet
+- nginx config files
+
+### Changed
+- Various bug fixes and syntax changes to remove console errors
+
+## [0.3.4] - 2021-12-02
+### Changed
+- Post page correctly stretches to fit text of any length
+
+### Removed
+- Writer nomination form on home page
+
 ## [0.3.4] - 2021-11-30
 ### Added
 - Edit page allows users to edit existing posts
