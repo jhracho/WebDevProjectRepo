@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Various bug fixes and syntax changes to remove console errors
 
-## [0.3.4] - 2021-12-02
+## [0.3.5] - 2021-12-02
 ### Changed
 - Post page correctly stretches to fit text of any length
 
