@@ -8,6 +8,6 @@ server {
         server_name 67.207.83.100;
 
         location / {
-                try_files $uri $uri/ =404;
+                try_files $uri $uri/ /index.html;
         }
 }
