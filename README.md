@@ -1,8 +1,12 @@
-# The Shamrock - Message Board for Fighting Irish Football
-### Nora Tucker and Jake Hracho
+# The Shamrock
+
+### Message Board for Fighting Irish Football
+### Developed by Nora Tucker and Jake Hracho in Fall/Winter 2021
 
 ![example workflow](https://github.com/jhracho/WebDevProjectRepo/actions/workflows/deploy.yml/badge.svg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To see the props/events, try filling out the form in the "Post" section. After clicking "Submit for Review", navigate back to the home page and notice that your post is on top of the Latest Post section with an accurate time stamp!
+Source code for **The Shamrock**: a place where anyone can log on and discuss ND Football. 
+
+Project currently deployed on a DigitalOcean Droplet running an nginx web server. Working on securing a domain.
